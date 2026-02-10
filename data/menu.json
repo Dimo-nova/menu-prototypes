@@ -1,0 +1,19 @@
+{
+  "categories": [
+    {
+      "id": "pizza",
+      "name": "Pizza",
+      "dishes": [
+        { "name": "Margherita", "price": 10 },
+        { "name": "Pepperoni", "price": 12 }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks",
+      "dishes": [
+        { "name": "Coke", "price": 3 }
+      ]
+    }
+  ]
+}
