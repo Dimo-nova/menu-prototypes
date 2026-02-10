@@ -1,18 +1,376 @@
 {
+  "restaurant": {
+    "name": "Casa del Fuego",
+    "tagline": "Cocina catalana de temporada, brasa lenta y sabores honestos",
+    "location": "Eixample, Barcelona",
+    "hours": "12:30-23:30",
+    "phone": "+34 93 000 000",
+    "currency": "EUR"
+  },
+  "allergens": [
+    {
+      "id": "altramuces",
+      "name": "Altramuces",
+      "icon": "images/alergenos/altramuces.svg"
+    },
+    {
+      "id": "apio",
+      "name": "Apio",
+      "icon": "images/alergenos/apio.svg"
+    },
+    {
+      "id": "cacahuetes",
+      "name": "Cacahuetes",
+      "icon": "images/alergenos/cacahuetes.svg"
+    },
+    {
+      "id": "crustaceos",
+      "name": "Crustaceos",
+      "icon": "images/alergenos/crustaceos.svg"
+    },
+    {
+      "id": "dioxido_azufre_sulfitos",
+      "name": "Dioxido de azufre y sulfitos",
+      "icon": "images/alergenos/dióxido-azufre-sulfitos.svg"
+    },
+    {
+      "id": "frutos_cascara",
+      "name": "Frutos de cascara",
+      "icon": "images/alergenos/frutos_cascara.svg"
+    },
+    {
+      "id": "gluten",
+      "name": "Gluten",
+      "icon": "images/alergenos/gluten.svg"
+    },
+    {
+      "id": "granos_sesamo",
+      "name": "Granos de sesamo",
+      "icon": "images/alergenos/granos_sesamo.svg"
+    },
+    {
+      "id": "huevos",
+      "name": "Huevos",
+      "icon": "images/alergenos/huevos.svg"
+    },
+    {
+      "id": "lacteos",
+      "name": "Lacteos",
+      "icon": "images/alergenos/lacteos.svg"
+    },
+    {
+      "id": "moluscos",
+      "name": "Moluscos",
+      "icon": "images/alergenos/moluscos.svg"
+    },
+    {
+      "id": "mostaza",
+      "name": "Mostaza",
+      "icon": "images/alergenos/mostaza.svg"
+    },
+    {
+      "id": "pescado",
+      "name": "Pescado",
+      "icon": "images/alergenos/pescado.svg"
+    },
+    {
+      "id": "soja",
+      "name": "Soja",
+      "icon": "images/alergenos/soja.svg"
+    }
+  ],
   "categories": [
     {
-      "id": "pizza",
-      "name": "Pizza",
+      "id": "para_compartir",
+      "name": "Para compartir",
+      "subtitle": "Tapas y tablas para abrir el apetito",
       "dishes": [
-        { "name": "Margherita", "price": 10 },
-        { "name": "Pepperoni", "price": 12 }
+        {
+          "id": "embutidos_gourmet",
+          "name": "Embutidos gourmet",
+          "description": "Seleccion cuidada de curados artesanos con pan de cristal tibio, aceite arbequina y un punto herbal que realza cada corte.",
+          "price": 16,
+          "image": "images/dishes/embutidos-gourmet.jpg.webp",
+          "ingredients": [
+            "fuet",
+            "jamon curado",
+            "butifarra",
+            "pan de cristal",
+            "aceite arbequina"
+          ],
+          "prepTime": 10,
+          "calories": 620,
+          "servingSize": "Para 2",
+          "spiceLevel": "Suave",
+          "pairing": "Vermut rojo o cava brut",
+          "chefNote": "Cortado al momento para mantener aromas",
+          "dietary": [],
+          "tags": ["Para compartir", "Popular"],
+          "allergens": ["gluten", "mostaza"],
+          "isSignature": true
+        },
+        {
+          "id": "embutidos",
+          "name": "Tabla de embutidos",
+          "description": "Cortes clasicos con pepinillos, pan rustico de masa madre y un aliño de aceite y pimienta negra.",
+          "price": 12,
+          "image": "images/dishes/embutidos.jpg",
+          "ingredients": ["salchichon", "chorizo", "pan rustico", "pepinillos"],
+          "prepTime": 8,
+          "calories": 540,
+          "servingSize": "Para 2",
+          "spiceLevel": "Suave",
+          "pairing": "Garnacha joven",
+          "chefNote": "Perfecta para abrir boca",
+          "dietary": [],
+          "tags": ["Clasico"],
+          "allergens": ["gluten", "mostaza"],
+          "isSignature": false
+        },
+        {
+          "id": "croquetas",
+          "name": "Croquetas de la casa",
+          "description": "Cremosas por dentro y doradas por fuera, con bechamel de jamon curado y un rebozado fino y crujiente.",
+          "price": 9,
+          "image": "images/dishes/croquetas.jpg",
+          "ingredients": ["bechamel", "jamon", "pan rallado"],
+          "prepTime": 14,
+          "calories": 480,
+          "servingSize": "Para 2-3",
+          "spiceLevel": "Suave",
+          "pairing": "Cerveza artesanal",
+          "chefNote": "Recién hechas para mayor cremosidad",
+          "dietary": [],
+          "tags": ["Crujiente"],
+          "allergens": ["gluten", "huevos", "lacteos"],
+          "isSignature": true
+        },
+        {
+          "id": "padron",
+          "name": "Pimientos de padron",
+          "description": "Salteados al punto con sal marina y aceite de oliva virgen; algunos pican, otros no.",
+          "price": 7,
+          "image": "images/dishes/padron.jpg",
+          "ingredients": ["pimientos de padron", "sal marina", "aceite de oliva"],
+          "prepTime": 8,
+          "calories": 180,
+          "servingSize": "Para 2",
+          "spiceLevel": "Variable",
+          "pairing": "Txakoli fresco",
+          "chefNote": "Listos en pocos minutos",
+          "dietary": ["vegano", "sin gluten"],
+          "tags": ["Ligero"],
+          "allergens": [],
+          "isSignature": false
+        }
       ]
     },
     {
-      "id": "drinks",
-      "name": "Drinks",
+      "id": "de_la_huerta",
+      "name": "De la huerta",
+      "subtitle": "Verduras de temporada y brasas suaves",
       "dishes": [
-        { "name": "Coke", "price": 3 }
+        {
+          "id": "escalibada",
+          "name": "Escalibada",
+          "description": "Verduras asadas lentamente con humo suave, aceite de oliva y un toque de sal en escamas.",
+          "price": 11,
+          "image": "images/dishes/escalibada.jpg",
+          "ingredients": ["berenjena", "pimiento", "cebolla", "aceite de oliva"],
+          "prepTime": 12,
+          "calories": 240,
+          "servingSize": "Para 2",
+          "spiceLevel": "Suave",
+          "pairing": "Blanco seco mediterraneo",
+          "chefNote": "Se termina con aceite arbequina",
+          "dietary": ["vegano", "sin gluten"],
+          "tags": ["Veggie"],
+          "allergens": [],
+          "isSignature": false
+        },
+        {
+          "id": "calcots",
+          "name": "Calcots a la brasa",
+          "description": "Calcots tiernos y dulces con romesco de frutos secos, toque ahumado y pan a la brasa.",
+          "price": 13,
+          "image": "images/dishes/calçots.jpg",
+          "ingredients": ["calcots", "romesco", "aceite de oliva"],
+          "prepTime": 16,
+          "calories": 320,
+          "servingSize": "Para 2",
+          "spiceLevel": "Suave",
+          "pairing": "Cava brut nature",
+          "chefNote": "Romesco hecho a diario",
+          "dietary": ["vegetariano"],
+          "tags": ["Temporada"],
+          "allergens": ["frutos_cascara"],
+          "isSignature": true
+        },
+        {
+          "id": "menu_calcots",
+          "name": "Menu de calcots",
+          "description": "Racion generosa con romesco, pan tostado y guarnicion de temporada para una experiencia completa.",
+          "price": 19,
+          "image": "images/dishes/menu-calçots.jpg",
+          "ingredients": ["calcots", "romesco", "pan tostado"],
+          "prepTime": 18,
+          "calories": 610,
+          "servingSize": "Para 2-3",
+          "spiceLevel": "Suave",
+          "pairing": "Rosado seco",
+          "chefNote": "Ideal para compartir",
+          "dietary": ["vegetariano"],
+          "tags": ["Generoso"],
+          "allergens": ["frutos_cascara", "gluten"],
+          "isSignature": false
+        }
+      ]
+    },
+    {
+      "id": "del_mar",
+      "name": "Del mar",
+      "subtitle": "Mariscos calientes y aromas de ajo",
+      "dishes": [
+        {
+          "id": "gambas_ajillo",
+          "name": "Gambas al ajillo",
+          "description": "Gambas jugosas salteadas con ajo laminado, guindilla suave y perejil fresco en aceite de oliva.",
+          "price": 14,
+          "image": "images/dishes/gambas_ajillo.webp",
+          "ingredients": ["gambas", "ajo", "guindilla", "perejil"],
+          "prepTime": 12,
+          "calories": 360,
+          "servingSize": "Para 2",
+          "spiceLevel": "Medio",
+          "pairing": "Albariño frio",
+          "chefNote": "Se sirve chisporroteando",
+          "dietary": ["sin gluten"],
+          "tags": ["Mar"],
+          "allergens": ["crustaceos"],
+          "isSignature": true
+        }
+      ]
+    },
+    {
+      "id": "a_la_brasa",
+      "name": "A la brasa",
+      "subtitle": "Cortes jugosos y cocciones al punto",
+      "dishes": [
+        {
+          "id": "chuleton",
+          "name": "Chuleton de ternera",
+          "description": "Corte madurado y marcado a la brasa con sal gruesa, reposado para mantener jugosidad.",
+          "price": 28,
+          "image": "images/dishes/chuleton-de-ternera.jpg",
+          "ingredients": ["ternera madurada", "sal gruesa"],
+          "prepTime": 20,
+          "calories": 820,
+          "servingSize": "Para 2",
+          "spiceLevel": "Suave",
+          "pairing": "Tinto con crianza",
+          "chefNote": "Recomendamos punto medio",
+          "dietary": ["sin gluten"],
+          "tags": ["Brasa"],
+          "allergens": [],
+          "isSignature": true
+        },
+        {
+          "id": "pollo_brasa",
+          "name": "Pollo rustico",
+          "description": "Pieza de corral con hierbas, patata al rescoldo y limon, coccion lenta para piel crujiente.",
+          "price": 17,
+          "image": "images/dishes/pollo.jpg",
+          "ingredients": ["pollo", "hierbas", "limon", "patata"],
+          "prepTime": 18,
+          "calories": 640,
+          "servingSize": "Individual",
+          "spiceLevel": "Suave",
+          "pairing": "Blanco con barrica",
+          "chefNote": "Aromas de tomillo y romero",
+          "dietary": ["sin gluten"],
+          "tags": ["Jugoso"],
+          "allergens": [],
+          "isSignature": false
+        },
+        {
+          "id": "pollo_miel",
+          "name": "Pollo con miel",
+          "description": "Glaseado suave con soja y miel, acabado con sesamo tostado y brillo caramelizado.",
+          "price": 18,
+          "image": "images/dishes/pollo-miel.jpg",
+          "ingredients": ["pollo", "miel", "soja", "sesamo"],
+          "prepTime": 16,
+          "calories": 590,
+          "servingSize": "Individual",
+          "spiceLevel": "Suave",
+          "pairing": "Cerveza lager",
+          "chefNote": "Equilibrio entre dulce y salado",
+          "dietary": [],
+          "tags": ["Dulce"],
+          "allergens": ["soja", "granos_sesamo"],
+          "isSignature": false
+        }
+      ]
+    },
+    {
+      "id": "postres",
+      "name": "Postres",
+      "subtitle": "Final dulce y tradicional",
+      "dishes": [
+        {
+          "id": "crema_catalana",
+          "name": "Crema catalana",
+          "description": "Capa de caramelo crujiente, crema suave de vainilla y citricos con perfume de canela.",
+          "price": 7,
+          "image": "images/dishes/crema-cat.jpg",
+          "ingredients": ["leche", "huevos", "vainilla", "citricos"],
+          "prepTime": 10,
+          "calories": 420,
+          "servingSize": "Individual",
+          "spiceLevel": "Suave",
+          "pairing": "Moscatel frio",
+          "chefNote": "Caramelizado al momento",
+          "dietary": ["vegetariano"],
+          "tags": ["Clasico"],
+          "allergens": ["huevos", "lacteos"],
+          "isSignature": false
+        },
+        {
+          "id": "flan",
+          "name": "Flan de huevo tradicional",
+          "description": "Textura sedosa con caramelo dorado, toque de canela y aroma de vainilla natural.",
+          "price": 6,
+          "image": "images/dishes/FLAN-DE-HUEVO-TRADICIONAL.jpg",
+          "ingredients": ["huevos", "leche", "caramelo"],
+          "prepTime": 8,
+          "calories": 390,
+          "servingSize": "Individual",
+          "spiceLevel": "Suave",
+          "pairing": "Cafe solo",
+          "chefNote": "Receta tradicional de casa",
+          "dietary": ["vegetariano"],
+          "tags": ["Suave"],
+          "allergens": ["huevos", "lacteos"],
+          "isSignature": false
+        },
+        {
+          "id": "torrijas",
+          "name": "Torrijas",
+          "description": "Pan infusionado en leche y canela, dorado al instante con azucar y ralladura de limon.",
+          "price": 7,
+          "image": "images/dishes/Torrijas.webp",
+          "ingredients": ["pan", "leche", "huevos", "canela"],
+          "prepTime": 12,
+          "calories": 520,
+          "servingSize": "Individual",
+          "spiceLevel": "Suave",
+          "pairing": "Cava semi seco",
+          "chefNote": "Se sirve tibia",
+          "dietary": ["vegetariano"],
+          "tags": ["Reconfortante"],
+          "allergens": ["gluten", "huevos", "lacteos"],
+          "isSignature": true
+        }
       ]
     }
   ]

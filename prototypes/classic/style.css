@@ -1,0 +1,293 @@
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	color-scheme: light;
+	--cream: #f6efe6;
+	--paper: #fffaf2;
+	--ink: #3f2d1c;
+	--muted: #806955;
+	--accent: #c65a2e;
+	--accent-soft: #f2c7a1;
+	--shadow: rgba(60, 40, 20, 0.15);
+}
+
+body {
+	margin: 0;
+	font-family: "Work Sans", "Trebuchet MS", sans-serif;
+	background: radial-gradient(circle at top left, #fff5e5, var(--cream));
+	color: var(--ink);
+}
+
+body::before {
+	content: "";
+	position: fixed;
+	inset: -20% 0 auto 0;
+	height: 55vh;
+	background: linear-gradient(120deg, rgba(198, 90, 46, 0.12), transparent 60%);
+	z-index: -1;
+}
+
+.page {
+	max-width: 1120px;
+	margin: 0 auto;
+	padding: 48px 24px 80px;
+}
+
+.hero {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+	align-items: center;
+	justify-content: space-between;
+	padding: 32px 32px 28px;
+	background: var(--paper);
+	border-radius: 28px;
+	box-shadow: 0 24px 40px var(--shadow);
+}
+
+.eyebrow {
+	text-transform: uppercase;
+	letter-spacing: 0.18em;
+	font-size: 12px;
+	color: var(--accent);
+	margin: 0 0 8px;
+}
+
+.hero h1 {
+	font-family: "Playfair Display", "Times New Roman", serif;
+	font-size: clamp(32px, 5vw, 54px);
+	margin: 0 0 8px;
+}
+
+.tagline {
+	margin: 0;
+	color: var(--muted);
+	font-size: 16px;
+	max-width: 520px;
+}
+
+.hero-meta {
+	display: grid;
+	gap: 8px;
+	font-size: 14px;
+	color: var(--muted);
+}
+
+.hero-meta span {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.hero-meta span::before {
+	content: "";
+	width: 6px;
+	height: 6px;
+	border-radius: 999px;
+	background: var(--accent);
+}
+
+.allergens {
+	margin-top: 36px;
+}
+
+.section-title {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	align-items: baseline;
+	margin-bottom: 18px;
+}
+
+.section-title h2 {
+	font-family: "Playfair Display", "Times New Roman", serif;
+	margin: 0;
+	font-size: 26px;
+}
+
+.section-title p {
+	margin: 0;
+	color: var(--muted);
+}
+
+.legend-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: 12px;
+	background: var(--paper);
+	border-radius: 18px;
+	padding: 16px;
+	box-shadow: 0 16px 28px var(--shadow);
+}
+
+.legend-item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 14px;
+	color: var(--muted);
+}
+
+.legend-item img {
+	width: 26px;
+	height: 26px;
+	object-fit: contain;
+}
+
+.menu {
+	margin-top: 40px;
+	display: grid;
+	gap: 36px;
+}
+
+.category {
+	display: grid;
+	gap: 18px;
+}
+
+.category-header h3 {
+	margin: 0 0 6px;
+	font-family: "Playfair Display", "Times New Roman", serif;
+	font-size: 28px;
+}
+
+.category-header p {
+	margin: 0;
+	color: var(--muted);
+}
+
+.menu-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 20px;
+}
+
+.dish-card {
+	background: var(--paper);
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 0 18px 30px var(--shadow);
+	display: grid;
+	grid-template-rows: auto 1fr;
+	animation: rise 0.6s ease;
+}
+
+.dish-card img.dish-photo {
+	width: 100%;
+	height: 170px;
+	object-fit: cover;
+}
+
+.dish-content {
+	padding: 16px 18px 18px;
+	display: grid;
+	gap: 10px;
+}
+
+.dish-head {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.dish-head h4 {
+	margin: 0;
+	font-size: 18px;
+}
+
+.price {
+	font-weight: 600;
+	color: var(--accent);
+}
+
+.dish-description {
+	margin: 0;
+	color: var(--muted);
+	font-size: 14px;
+}
+
+.dish-ingredients {
+	margin: 0;
+	font-size: 13px;
+	color: var(--muted);
+}
+
+.dish-ingredients span {
+	color: var(--ink);
+	font-weight: 600;
+}
+
+.dish-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	font-size: 12px;
+	color: var(--muted);
+}
+
+.dish-meta span {
+	padding: 4px 8px;
+	background: rgba(198, 90, 46, 0.12);
+	border-radius: 999px;
+}
+
+.dish-pairing,
+.dish-note,
+.dish-diet {
+	margin: 0;
+	font-size: 12.5px;
+	color: var(--muted);
+}
+
+.dish-note {
+	color: var(--ink);
+	font-weight: 600;
+}
+
+.badge {
+	align-self: start;
+	justify-self: start;
+	font-size: 11px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	padding: 4px 8px;
+	border-radius: 999px;
+	background: var(--accent-soft);
+	color: var(--ink);
+	font-weight: 600;
+}
+
+.allergen-icons {
+	display: flex;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+
+.allergen-icons img {
+	width: 22px;
+	height: 22px;
+}
+
+@keyframes rise {
+	from {
+		opacity: 0;
+		transform: translateY(14px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 720px) {
+	.hero {
+		padding: 24px;
+	}
+
+	.hero-meta {
+		width: 100%;
+	}
+}

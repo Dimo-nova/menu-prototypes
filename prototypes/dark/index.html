@@ -1,14 +1,46 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>Classic Menu</title>
-  <link rel="stylesheet" href="./style.css" />
-</head>
-<body>
-  <h1 id="restaurant-name">Hola</h1>
-  <div id="menu"></div>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dark Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Space+Grotesk:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="stage">
+      <header class="hero">
+        <div class="hero-left">
+          <p class="eyebrow">Carta nocturna</p>
+          <h1 id="restaurant-name">Casa del Fuego</h1>
+          <p id="restaurant-tagline" class="tagline"></p>
+          <div id="restaurant-meta" class="hero-meta"></div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-card">
+            <h2>Favoritos de la brasa</h2>
+            <p>Selecciones destacadas para una noche lenta.</p>
+            <ul id="signature-list" class="signature-list"></ul>
+          </div>
+        </div>
+      </header>
 
-  <script src="./app.js"></script>
-</body>
+      <section class="legend">
+        <div class="section-title">
+          <h2>Alergenos</h2>
+          <p>Iconos visibles en cada plato</p>
+        </div>
+        <div id="allergen-legend" class="legend-grid"></div>
+      </section>
+
+      <section id="menu" class="menu"></section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
 </html>
