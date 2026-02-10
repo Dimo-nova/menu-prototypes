@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>La Kedada - Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Sora:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="frame">
+      <header class="hero">
+        <div class="hero-brand">
+          <p class="eyebrow">Carta de pueblo</p>
+          <h1 id="restaurant-name">La Kedada</h1>
+          <p id="restaurant-tagline" class="tagline">
+            Cocina espanola tradicional con sabor a casa.
+          </p>
+          <div id="restaurant-meta" class="hero-meta"></div>
+        </div>
+        <div class="hero-stamp">
+          <p>Desde 1986</p>
+          <span>Brasa lenta y guisos de siempre</span>
+        </div>
+      </header>
+
+      <section class="legend">
+        <div class="section-title">
+          <h2>Alergenos</h2>
+          <p>Iconos visibles en el detalle</p>
+        </div>
+        <div id="allergen-legend" class="legend-grid"></div>
+      </section>
+
+      <section id="menu" class="menu"></section>
+    </main>
+
+    <div id="dish-modal" class="modal" aria-hidden="true">
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" aria-label="Cerrar" data-close>
+          ×
+        </button>
+        <div class="modal-body">
+          <img id="modal-image" class="modal-image" alt="" />
+          <div class="modal-content">
+            <div class="modal-head">
+              <h3 id="modal-title"></h3>
+              <span id="modal-price" class="modal-price"></span>
+            </div>
+            <p id="modal-description" class="modal-description"></p>
+            <div id="modal-details" class="modal-details"></div>
+            <div id="modal-allergens" class="modal-allergens"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

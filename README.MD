@@ -9,6 +9,7 @@ This workspace contains lightweight HTML/CSS/JS prototypes for a digital restaur
 - data/images/alergenos: allergen icons referenced by menu.json
 - prototypes/classic: light, editorial-themed prototype
 - prototypes/dark: dark, atmospheric prototype
+- prototypes/kedada: rustic village-style prototype with horizontal cards and modal details
 
 ## Data model notes
 
