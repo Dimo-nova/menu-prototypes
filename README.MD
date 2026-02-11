@@ -7,9 +7,7 @@ This workspace contains lightweight HTML/CSS/JS prototypes for a digital restaur
 - data/menu.json: mock menu data (restaurant info, allergens, categories, dishes)
 - data/images/dishes: dish images referenced by menu.json
 - data/images/alergenos: allergen icons referenced by menu.json
-- prototypes/classic: light, editorial-themed prototype
-- prototypes/dark: dark, atmospheric prototype
-- prototypes/kedada: rustic village-style prototype with horizontal cards and modal details
+- prototypes/[prototype]: all the prototypes included in the project, each having html, css and javascript file
 
 ## Data model notes
 
@@ -21,17 +19,22 @@ This workspace contains lightweight HTML/CSS/JS prototypes for a digital restaur
   - image: relative path under images/dishes
 - allergens are defined in menu.json with id, name, and icon.
 
+Don't need to include all of this data, keep it simple and personalize for each restaurant
+
 ## Rendering behavior
 
 - Both prototypes read data/menu.json with fetch and render a full card per dish.
 - If a dish has allergens, its card shows the matching allergen icons.
-- A legend shows all allergen icons and names.
 
 ## Design intent
 
-- Classic: warm, paper-like, editorial look.
-- Dark: moody, high-contrast, night menu vibe.
+- The copy is always in spanish
 - Keep layouts simple, eye-catching, and not overwhelming.
+- Include a section for highlighted dishes, like a hero slider
+- Use badges in some dishes to show interesting/highlighted data of the dish
+- Inlcude a button to reserve a place in the restaurant
+- Include a top menu to navigate through the menu
+- Provide feedback on interesting features for special restaurants (for example, if its a chess restaurant including a puzzle before loading the menu), be creative
 
 ## Guidance for future changes
 
