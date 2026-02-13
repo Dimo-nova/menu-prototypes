@@ -71,20 +71,10 @@ header {
   text-align: center;
 }
 
-.logo-badge {
-  width: 100px;
-  height: 100px;
-  margin: 6px auto 0;
-  border-radius: 50%;
-  background: var(--crema-papel);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .brand img {
-  width: 72px;
+  width: 200px;
   height: 72px;
   object-fit: contain;
   background: transparent;
