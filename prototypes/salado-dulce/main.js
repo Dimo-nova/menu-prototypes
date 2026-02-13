@@ -10,10 +10,10 @@ let allergenImageMap = {};
 let normalizedAllergenImageMap = {};
 
 const categoryIconMap = {
-  "crepes salats": "fa-bread-slice",
-  "empanadas argentines": "fa-hand-holding-heart",
-  "crepes dolcos": "fa-cookie-bite",
-  "gelats ecologics": "fa-ice-cream",
+  "crepes salados": "fa-bread-slice",
+  "empanadas argentinas": "fa-hand-holding-heart",
+  "crepes dulces": "fa-cookie-bite",
+  "helados ecologicos": "fa-ice-cream",
   "bebidas": "fa-glass-water",
   "para compartir": "fa-people-group",
   "de la huerta": "fa-seedling",
@@ -187,20 +187,20 @@ const mapMenuData = (raw) => {
       {
         id: "slide-foodtruck",
         tag: "Foodtruck",
-        title: "El nostre foodtruck",
-        description: "Crêpes i gelats ecològics fets al moment.",
+        title: "Nuestro foodtruck",
+        description: "Crêpes y helados ecológicos hechos al momento.",
         imageUrl: "images/brand/foto-foodtruck.jpg",
       },
       {
         id: "slide-crepe-nutella",
-        tag: "Crêpes dolços",
+        tag: "Crêpes dulces",
         title: "Crêpe de Nutella",
         description: "Dulce, cremosa y hecha al momento.",
         imageUrl: "../../data/images/dishes/crepes/crepe-nutella.jpg",
       },
       {
         id: "slide-empanada-entrana",
-        tag: "Empanades",
+        tag: "Empanadas",
         title: "Empanada Real de Entraña",
         description: "Masa dorada, relleno jugoso y sabor argentino.",
         imageUrl: "../../data/images/dishes/empanadas/empanada-argentina-real-entrana.jpg",
