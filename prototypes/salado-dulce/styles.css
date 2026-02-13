@@ -72,8 +72,8 @@ header {
 }
 
 .logo-badge {
-  width: 64px;
-  height: 64px;
+  width: 100px;
+  height: 100px;
   margin: 6px auto 0;
   border-radius: 50%;
   background: var(--crema-papel);
@@ -84,8 +84,8 @@ header {
 }
 
 .brand img {
-  width: 48px;
-  height: auto;
+  width: 72px;
+  height: 72px;
   object-fit: contain;
   background: transparent;
   border-radius: 0;
@@ -857,26 +857,114 @@ section {
 }
 
 /* Floating Button */
-.fab {
+/* Order reminder popup */
+.order-popup-overlay {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--fuego);
-  color: white;
-  padding: 15px 25px;
-  border-radius: 50px;
-  font-weight: 700 !important;
-  box-shadow: 0 5px 20px rgba(198, 42, 70, 0.5);
-  text-decoration: none;
-  text-transform: none;
-  z-index: 900;
-  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
   align-items: center;
-  transition: transform 0.2s;
-  gap: 8px;
-  letter-spacing: 1px;
-  font-size: 1rem;
-  font-family: 'Montserrat', sans-serif !important;
+  justify-content: center;
+  z-index: 1500;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
 }
 
-.fab:hover { transform: scale(1.05); }
+.order-popup-overlay.open {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.order-popup {
+  background: var(--crema-papel);
+  border-radius: 20px;
+  padding: 28px 26px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.order-popup-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--texto-gris);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.order-popup-close:hover {
+  color: var(--texto-negro);
+}
+
+.order-popup-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--fuego);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.order-popup-icon i {
+  font-size: 1.6rem;
+  color: white;
+}
+
+.order-popup-title {
+  color: var(--texto-negro);
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+  font-family: var(--font-montserrat);
+}
+
+.order-popup-text {
+  color: var(--texto-negro);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.order-popup-button {
+  background: var(--fuego);
+  color: white;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: var(--font-montserrat);
+}
+
+.order-popup-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(198, 42, 70, 0.4);
+}

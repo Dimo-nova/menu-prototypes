@@ -93,6 +93,9 @@ const dom = {
   dishModalMedia: document.getElementById("dishModalMedia"),
   dishModalBody: document.getElementById("dishModalBody"),
   dishModalClose: document.getElementById("dishModalClose"),
+  orderPopupOverlay: document.getElementById("orderPopupOverlay"),
+  orderPopupClose: document.getElementById("orderPopupClose"),
+  orderPopupButton: document.getElementById("orderPopupButton"),
 };
 
 const normalizeLabel = (value) =>
@@ -595,6 +598,16 @@ const closeDishModal = () => {
   }, 350);
 };
 
+const openOrderPopup = () => {
+  if (!dom.orderPopupOverlay) return;
+  dom.orderPopupOverlay.classList.add("open");
+};
+
+const closeOrderPopup = () => {
+  if (!dom.orderPopupOverlay) return;
+  dom.orderPopupOverlay.classList.remove("open");
+};
+
 const setActiveNavOnScroll = () => {
   const links = [...dom.categoryNav.querySelectorAll("a")];
   const sections = [...document.querySelectorAll("section[id]")];
@@ -655,6 +668,22 @@ const init = () => {
       closeDishModal();
     }
   });
+
+  if (dom.orderPopupClose) {
+    dom.orderPopupClose.addEventListener("click", closeOrderPopup);
+  }
+  if (dom.orderPopupButton) {
+    dom.orderPopupButton.addEventListener("click", closeOrderPopup);
+  }
+  if (dom.orderPopupOverlay) {
+    dom.orderPopupOverlay.addEventListener("click", (event) => {
+      if (event.target === dom.orderPopupOverlay) {
+        closeOrderPopup();
+      }
+    });
+  }
+
+  setTimeout(openOrderPopup, 5000);
 };
 
 fetch("menu.json")
