@@ -15,9 +15,16 @@ const categoryIconMap = {
   "crepes dolcos": "fa-cookie-bite",
   "gelats ecologics": "fa-ice-cream",
   "bebidas": "fa-glass-water",
+  "para picar": "fa-utensils",
   "para compartir": "fa-people-group",
-  "de la huerta": "fa-seedling",
+  "de la huerta y el corral": "fa-seedling",
   "del mar": "fa-fish",
+  "de cuchara": "fa-bowl-hot",
+  "de carne": "fa-drumstick-bite",
+  "de dulce (postres)": "fa-ice-cream",
+  "de dulce": "fa-ice-cream",
+  "postres": "fa-ice-cream",
+  "de la huerta": "fa-seedling",
   "a la brasa": "fa-fire",
   postres: "fa-ice-cream",
   tostas: "fa-bread-slice",
@@ -77,6 +84,7 @@ const state = {
   sliderTimer: null,
   celiacFilter: false,
   scrollHandler: null,
+  activeCategoryId: "",
 };
 
 const dom = {
@@ -93,9 +101,6 @@ const dom = {
   dishModalMedia: document.getElementById("dishModalMedia"),
   dishModalBody: document.getElementById("dishModalBody"),
   dishModalClose: document.getElementById("dishModalClose"),
-  orderPopupOverlay: document.getElementById("orderPopupOverlay"),
-  orderPopupClose: document.getElementById("orderPopupClose"),
-  orderPopupButton: document.getElementById("orderPopupButton"),
 };
 
 const normalizeLabel = (value) =>
@@ -131,7 +136,9 @@ const formatPrice = (price) => {
 
 const buildAllergenMaps = (allergens) => {
   allergenImageMap = Object.fromEntries(
-    allergens.map((allergen) => [allergen.name, `../../data/${allergen.icon}`])
+    allergens
+      .filter((allergen) => Boolean(allergen.icon))
+      .map((allergen) => [allergen.name, `../../data/${allergen.icon}`])
   );
   normalizedAllergenImageMap = Object.fromEntries(
     Object.entries(allergenImageMap).map(([key, value]) => [normalizeLabel(key), value])
@@ -154,6 +161,11 @@ const mapMenuData = (raw) => {
       const allergenNames = (dish.allergens || [])
         .map((id) => allergenNameById.get(id))
         .filter(Boolean);
+      const allergensText = dish.allergensText
+        ? dish.allergensText
+        : allergenNames.length > 0
+          ? allergenNames.join(", ")
+          : "Consultar";
       const longDesc = [dish.description, dish.chefNote]
         .filter(Boolean)
         .join(" ");
@@ -166,7 +178,7 @@ const mapMenuData = (raw) => {
         badge: dish.isSignature ? "Destacado" : "",
         shortDesc: dish.description || "",
         longDesc: longDesc || dish.description,
-        allergens: allergenNames.join(", "),
+        allergens: allergensText,
         pairing: dish.pairing || "",
         img:
           dish.image && (dish.image.startsWith("http") || dish.image.startsWith("images/"))
@@ -179,29 +191,7 @@ const mapMenuData = (raw) => {
   );
 
   return {
-    sliders: [
-      {
-        id: "slide-foodtruck",
-        tag: "Foodtruck",
-        title: "El nostre foodtruck",
-        description: "Crêpes i gelats ecològics fets al moment.",
-        imageUrl: "images/brand/foto-foodtruck.jpg",
-      },
-      {
-        id: "slide-crepe-nutella",
-        tag: "Crêpes dolços",
-        title: "Crêpe de Nutella",
-        description: "Dulce, cremosa y hecha al momento.",
-        imageUrl: "images/dishes/Crepe nutella.jpg",
-      },
-      {
-        id: "slide-empanada-entrana",
-        tag: "Empanades",
-        title: "Empanada Real de Entraña",
-        description: "Masa dorada, relleno jugoso y sabor argentino.",
-        imageUrl: "images/dishes/empanada argentina real entraña.jpg",
-      }
-    ],
+    sliders: Array.isArray(raw.sliders) ? raw.sliders : [],
     categories,
     dishes,
     allergens: raw.allergens,
@@ -212,7 +202,11 @@ const mapMenuData = (raw) => {
 const getFilteredDishes = () => {
   if (!state.celiacFilter) return data.dishes;
   return data.dishes.filter(
-    (dish) => !dish.allergens?.toLowerCase().includes("gluten")
+    (dish) => {
+      const allergensText = dish.allergens?.toLowerCase() || "";
+      if (allergensText.includes("sin gluten")) return true;
+      return !allergensText.includes("gluten");
+    }
   );
 };
 
@@ -598,19 +592,23 @@ const closeDishModal = () => {
   }, 350);
 };
 
-const openOrderPopup = () => {
-  if (!dom.orderPopupOverlay) return;
-  dom.orderPopupOverlay.classList.add("open");
-};
-
-const closeOrderPopup = () => {
-  if (!dom.orderPopupOverlay) return;
-  dom.orderPopupOverlay.classList.remove("open");
-};
-
 const setActiveNavOnScroll = () => {
   const links = [...dom.categoryNav.querySelectorAll("a")];
   const sections = [...document.querySelectorAll("section[id]")];
+  const centerActiveLink = (activeLink) => {
+    if (!activeLink || !dom.categoryNav) return;
+    const navRect = dom.categoryNav.getBoundingClientRect();
+    const linkRect = activeLink.getBoundingClientRect();
+    const currentScroll = dom.categoryNav.scrollLeft;
+    const offset = linkRect.left - navRect.left;
+    const targetScroll =
+      currentScroll + offset - (navRect.width / 2 - linkRect.width / 2);
+
+    dom.categoryNav.scrollTo({
+      left: Math.max(0, targetScroll),
+      behavior: "smooth",
+    });
+  };
 
   const handleScroll = () => {
     let current = "";
@@ -621,11 +619,19 @@ const setActiveNavOnScroll = () => {
       }
     });
 
+    if (!current || current === state.activeCategoryId) return;
+    state.activeCategoryId = current;
+
+    let activeLink = null;
     links.forEach((link) => {
       const href = link.getAttribute("href") || "";
       const id = href.startsWith("#") ? href.slice(1) : href;
-      link.classList.toggle("active", id === current);
+      const isActive = id === current;
+      link.classList.toggle("active", isActive);
+      if (isActive) activeLink = link;
     });
+
+    centerActiveLink(activeLink);
   };
 
   handleScroll();
@@ -668,22 +674,6 @@ const init = () => {
       closeDishModal();
     }
   });
-
-  if (dom.orderPopupClose) {
-    dom.orderPopupClose.addEventListener("click", closeOrderPopup);
-  }
-  if (dom.orderPopupButton) {
-    dom.orderPopupButton.addEventListener("click", closeOrderPopup);
-  }
-  if (dom.orderPopupOverlay) {
-    dom.orderPopupOverlay.addEventListener("click", (event) => {
-      if (event.target === dom.orderPopupOverlay) {
-        closeOrderPopup();
-      }
-    });
-  }
-
-  setTimeout(openOrderPopup, 5000);
 };
 
 fetch("menu.json")

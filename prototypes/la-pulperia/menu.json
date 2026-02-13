@@ -1,0 +1,266 @@
+{
+  "restaurant": {
+    "name": "La Pulperia",
+    "tagline": "Marisqueria y cocina clasica con producto fresco",
+    "location": "Barcelona",
+    "hours": "13:00-16:00 | 20:00-23:30",
+    "phone": "+34 93 000 000",
+    "currency": "EUR"
+  },
+  "sliders": [
+    {
+      "id": "slider-pimientos",
+      "tag": "Para picar",
+      "title": "Clasicos para compartir",
+      "description": "Sabores de siempre con producto fresco.",
+      "imageUrl": "../../data/images/dishes/entrantes/padron.jpg"
+    },
+    {
+      "id": "slider-marisco",
+      "tag": "Del mar",
+      "title": "Cocina marinera",
+      "description": "Pescados y mariscos seleccionados.",
+      "imageUrl": "../../data/images/dishes/marisco/gambas-ajillo.webp"
+    },
+    {
+      "id": "slider-carne",
+      "tag": "De carne",
+      "title": "Cortes tradicionales",
+      "description": "Carnes a la parrilla y guisos.",
+      "imageUrl": "../../data/images/dishes/carne/chuleton-de-ternera.jpg"
+    }
+  ],
+  "allergens": [
+    {
+      "id": "gluten",
+      "name": "Gluten",
+      "icon": "images/alergenos/gluten.svg"
+    },
+    {
+      "id": "lacteos",
+      "name": "Lacteos",
+      "icon": "images/alergenos/lacteos.svg"
+    },
+    {
+      "id": "huevos",
+      "name": "Huevos",
+      "icon": "images/alergenos/huevos.svg"
+    },
+    {
+      "id": "pescado",
+      "name": "Pescado",
+      "icon": "images/alergenos/pescado.svg"
+    },
+    {
+      "id": "crustaceos",
+      "name": "Crustaceos",
+      "icon": "images/alergenos/crustaceos.svg"
+    },
+    {
+      "id": "moluscos",
+      "name": "Moluscos",
+      "icon": "images/alergenos/moluscos.svg"
+    },
+    {
+      "id": "consultar",
+      "name": "Consultar",
+      "icon": null
+    },
+    {
+      "id": "sin_gluten",
+      "name": "Sin gluten",
+      "icon": null
+    }
+  ],
+  "categories": [
+    {
+      "id": "para_picar",
+      "name": "Para Picar",
+      "subtitle": "Clasicos para compartir",
+      "dishes": [
+        {
+          "id": "verbena_ahumados",
+          "name": "Verbena de ahumados",
+          "description": "",
+          "price": "24,00 EUR",
+          "image": null,
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "empanada_atun",
+          "name": "Empanada casera de atun",
+          "description": "",
+          "price": "7,50 EUR",
+          "image": null,
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "pulpo_gallega",
+          "name": "Pulpo a la gallega",
+          "description": "",
+          "price": "23,00 EUR",
+          "image": null,
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "croquetas_caseras",
+          "name": "Croquetas caseras",
+          "description": "8 uds. jamon, bacalao/morcilla",
+          "price": "15,50 EUR",
+          "image": "/images/dishes/entrantes/croquetas.jpg",
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "huerta_corral",
+      "name": "De la Huerta y el Corral",
+      "subtitle": "Verduras y huevos con sabor",
+      "dishes": [
+        {
+          "id": "alcachofas_jamon",
+          "name": "Alcachofas con jamon iberico",
+          "description": "",
+          "price": "17,00 EUR",
+          "image": null,
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "trigueros_alioli",
+          "name": "Trigueros con ali-oli",
+          "description": "",
+          "price": "16,50 EUR",
+          "image": null,
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "ensalada_tomate",
+          "name": "Ensalada de tomate",
+          "description": "Con ventresca",
+          "price": "15,00 EUR",
+          "image": null,
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "pimientos_padron",
+          "name": "Pimientos del Padron",
+          "description": "",
+          "price": "9,00 EUR",
+          "image": "/images/dishes/entrantes/padron.jpg",
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "del_mar",
+      "name": "Del Mar",
+      "subtitle": "Pescados y mariscos",
+      "dishes": [
+        {
+          "id": "dorada_sal",
+          "name": "Dorada a la sal",
+          "description": "2 pax",
+          "price": "48,00 EUR",
+          "image": null,
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "tartar_atun",
+          "name": "Tartar de atun",
+          "description": "",
+          "price": "21,50 EUR",
+          "image": null,
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "brocheta_chipirones",
+          "name": "Brocheta de chipirones",
+          "description": "Con gambas",
+          "price": "17,00 EUR",
+          "image": "/images/dishes/marisco/gambas-ajillo.webp",
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "bacalao_hojaldre",
+          "name": "Bacalao al hojaldre",
+          "description": "Puerros y gambas",
+          "price": "24,00 EUR",
+          "image": null,
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "postres",
+      "name": "De Dulce (Postres)",
+      "subtitle": "Final clasico",
+      "dishes": [
+        {
+          "id": "tarta_queso",
+          "name": "Tarta de queso",
+          "description": "SIN GLUTEN",
+          "price": "8,00 EUR",
+          "image": null,
+          "allergensText": "Sin gluten",
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "tatin_manzana",
+          "name": "Tatin de manzana",
+          "description": "Con crema inglesa",
+          "price": "8,00 EUR",
+          "image": null,
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "torrija_abuela",
+          "name": "Torrija de la abuela",
+          "description": "Con helado vainilla",
+          "price": "8,00 EUR",
+          "image": "/images/dishes/postres/torrijas.webp",
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "arroz_leche",
+          "name": "Arroz con leche",
+          "description": "",
+          "price": "8,00 EUR",
+          "image": null,
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,16 +1,16 @@
 :root {
-  --madera-oscura: #5B2E17;
-  --madera-roja: #3d1e0f;
-  --crema-papel: #FFFFFF;
-  --fuego: #C62A46;
-  --fuego-suave: #e8899a;
-  --texto-negro: #212121;
-  --texto-gris: #666;
+  --madera-oscura: #ffffff;
+  --madera-roja: #f7f3ee;
+  --crema-papel: #ffffff;
+  --fuego: #186a40;
+  --fuego-suave: #2f8b5d;
+  --texto-negro: #1c1c1c;
+  --texto-gris: #5e5e5e;
   --radio: 16px;
-  --sombra-card: 0 4px 15px rgba(0,0,0,0.15);
+  --sombra-card: 0 6px 18px rgba(0,0,0,0.08);
   --transicion: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  --font-montserrat: "Montserrat", sans-serif;
-  --font-playfair: "Playfair Display", serif;
+  --font-montserrat: "Source Sans 3", sans-serif;
+  --font-playfair: "Cormorant Garamond", serif;
 }
 
 * {
@@ -23,9 +23,10 @@ body {
   padding: 0;
   padding-top: 145px;
   font-family: var(--font-montserrat);
-  background-color: var(--madera-oscura);
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%23ffffff' fill-opacity='0.04'/%3E%3C/svg%3E");
-  color: var(--crema-papel);
+  background-color: var(--crema-papel);
+  background-image: radial-gradient(circle at 1px 1px, rgba(24,106,64,0.08) 1px, transparent 0);
+  background-size: 32px 32px;
+  color: var(--texto-negro);
 }
 
 h1, h2, h3, h4 {
@@ -53,18 +54,19 @@ img {
 .align-middle { vertical-align: middle; }
 .font-montserrat { font-family: var(--font-montserrat); }
 .text-cream { color: var(--fuego); }
-.border-cream { border-color: rgba(255,255,255,0.5); }
+.border-cream { border-color: rgba(24,106,64,0.35); }
 
 /* Header */
 header {
-  background: linear-gradient(to bottom, rgba(91,46,23,1), rgba(91,46,23,0.97));
+  background: rgba(255,255,255,0.95);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  backdrop-filter: blur(5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 .brand {
@@ -137,21 +139,22 @@ header {
 }
 
 .nav-pill {
-  background: rgba(255,255,255,0.1);
-  color: white;
+  background: #f7f4f0;
+  color: var(--fuego);
   padding: 8px 16px;
   border-radius: 50px;
   white-space: nowrap;
   font-size: 0.9rem;
   text-decoration: none;
   transition: var(--transicion);
-  border: 1px solid transparent;
+  border: 1px solid rgba(24,106,64,0.2);
   cursor: pointer;
 }
 
 .nav-pill.active {
   background: var(--fuego);
-  box-shadow: 0 4px 10px rgba(198, 42, 70, 0.5);
+  color: white;
+  box-shadow: 0 4px 10px rgba(24, 106, 64, 0.35);
   font-weight: bold;
 }
 
@@ -195,7 +198,7 @@ header {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 50%, transparent 100%);
   padding: 40px 25px 10px 25px;
   color: white;
 }
@@ -318,10 +321,10 @@ header {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.8);
   backdrop-filter: blur(5px);
-  border: none;
-  color: white;
+  border: 1px solid rgba(24,106,64,0.2);
+  color: var(--fuego);
   font-size: 1.2rem;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -333,6 +336,7 @@ header {
 
 .slider-arrow.clicked {
   background: var(--fuego);
+  color: white;
 }
 
 /* Celiac Filter */
@@ -361,8 +365,8 @@ header {
 .celiac-checkbox .checkmark {
   width: 22px;
   height: 22px;
-  background: rgba(255,255,255,0.1);
-  border: 2px solid rgba(255,255,255,0.5);
+  background: rgba(24,106,64,0.08);
+  border: 2px solid rgba(24,106,64,0.35);
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -375,7 +379,7 @@ header {
   content: '';
   width: 6px;
   height: 12px;
-  border: solid gray;
+  border: solid white;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg) scale(0);
   transition: transform 0.2s ease;
@@ -417,7 +421,7 @@ section {
 
 .section-header h2 {
   font-size: 1.8rem;
-  color: var(--crema-papel);
+  color: var(--texto-negro);
   border-bottom: 3px solid var(--fuego);
   padding-bottom: 5px;
 }
@@ -431,7 +435,7 @@ section {
 .price-disclaimer {
   text-align: center;
   padding: 30px 20px 100px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--texto-gris);
   font-size: 0.85rem;
   font-style: italic;
 }
@@ -442,6 +446,7 @@ section {
   border-radius: var(--radio);
   overflow: hidden;
   box-shadow: var(--sombra-card);
+  border: 1px solid rgba(24,106,64,0.12);
   position: relative;
   transform: scale(1);
   transition: var(--transicion);
@@ -453,7 +458,7 @@ section {
 
 .dish-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
 
 .dish-card:active { transform: scale(0.98); }
@@ -534,6 +539,8 @@ section {
   font-size: 0.9rem;
   white-space: nowrap;
   padding: 4px 10px;
+  background: rgba(24,106,64,0.08);
+  border: 1px solid rgba(24,106,64,0.18);
   border-radius: 20px;
   margin-right: 4px;
 }
@@ -729,7 +736,7 @@ section {
 .detail-label {
   font-size: 0.8rem;
   text-transform: uppercase;
-  color: #999;
+  color: var(--texto-gris);
   font-weight: bold;
   margin-bottom: 5px;
   display: block;
@@ -738,7 +745,7 @@ section {
 .detail-text {
   font-size: 1rem;
   line-height: 1.6;
-  color: #444;
+  color: var(--texto-negro);
 }
 
 .modal-header-img {
@@ -846,115 +853,3 @@ section {
   font-size: 1.2rem;
 }
 
-/* Floating Button */
-/* Order reminder popup */
-.order-popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 1500;
-  padding: 20px;
-  animation: fadeIn 0.3s ease;
-}
-
-.order-popup-overlay.open {
-  display: flex;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.order-popup {
-  background: var(--crema-papel);
-  border-radius: 20px;
-  padding: 28px 26px;
-  max-width: 420px;
-  width: 100%;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-  animation: slideUp 0.3s ease;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.order-popup-close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: none;
-  border: none;
-  font-size: 1.1rem;
-  color: var(--texto-gris);
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.order-popup-close:hover {
-  color: var(--texto-negro);
-}
-
-.order-popup-icon {
-  width: 56px;
-  height: 56px;
-  background: var(--fuego);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 16px;
-}
-
-.order-popup-icon i {
-  font-size: 1.6rem;
-  color: white;
-}
-
-.order-popup-title {
-  color: var(--texto-negro);
-  font-size: 1.35rem;
-  margin-bottom: 10px;
-  font-family: var(--font-montserrat);
-}
-
-.order-popup-text {
-  color: var(--texto-negro);
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 18px;
-}
-
-.order-popup-button {
-  background: var(--fuego);
-  color: white;
-  border: none;
-  padding: 10px 26px;
-  border-radius: 50px;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  font-family: var(--font-montserrat);
-}
-
-.order-popup-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 20px rgba(198, 42, 70, 0.4);
-}

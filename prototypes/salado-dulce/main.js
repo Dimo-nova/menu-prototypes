@@ -77,6 +77,7 @@ const state = {
   sliderTimer: null,
   celiacFilter: false,
   scrollHandler: null,
+  activeCategoryId: "",
 };
 
 const dom = {
@@ -614,6 +615,20 @@ const closeOrderPopup = () => {
 const setActiveNavOnScroll = () => {
   const links = [...dom.categoryNav.querySelectorAll("a")];
   const sections = [...document.querySelectorAll("section[id]")];
+  const centerActiveLink = (activeLink) => {
+    if (!activeLink || !dom.categoryNav) return;
+    const navRect = dom.categoryNav.getBoundingClientRect();
+    const linkRect = activeLink.getBoundingClientRect();
+    const currentScroll = dom.categoryNav.scrollLeft;
+    const offset = linkRect.left - navRect.left;
+    const targetScroll =
+      currentScroll + offset - (navRect.width / 2 - linkRect.width / 2);
+
+    dom.categoryNav.scrollTo({
+      left: Math.max(0, targetScroll),
+      behavior: "smooth",
+    });
+  };
 
   const handleScroll = () => {
     let current = "";
@@ -624,11 +639,19 @@ const setActiveNavOnScroll = () => {
       }
     });
 
+    if (!current || current === state.activeCategoryId) return;
+    state.activeCategoryId = current;
+
+    let activeLink = null;
     links.forEach((link) => {
       const href = link.getAttribute("href") || "";
       const id = href.startsWith("#") ? href.slice(1) : href;
-      link.classList.toggle("active", id === current);
+      const isActive = id === current;
+      link.classList.toggle("active", isActive);
+      if (isActive) activeLink = link;
     });
+
+    centerActiveLink(activeLink);
   };
 
   handleScroll();
