@@ -195,7 +195,7 @@ const mapMenuData = (raw) => {
         tag: "Crêpes dolços",
         title: "Crêpe de Nutella",
         description: "Dulce, cremosa y hecha al momento.",
-        imageUrl: "../../data/images/dishes/sweet-crepes/crepe-nutella.jpg",
+        imageUrl: "../../data/images/dishes/crepes/crepe-nutella.jpg",
       },
       {
         id: "slide-empanada-entrana",
