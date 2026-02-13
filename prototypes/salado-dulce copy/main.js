@@ -168,15 +168,12 @@ const mapMenuData = (raw) => {
         longDesc: longDesc || dish.description,
         allergens: allergenNames.join(", "),
         pairing: dish.pairing || "",
-        img: dish.image
-          ? dish.image.startsWith("http")
+        img:
+          dish.image && (dish.image.startsWith("http") || dish.image.startsWith("images/"))
             ? dish.image
-            : dish.image.startsWith("data/")
-              ? `../../${dish.image}`
-              : dish.image.startsWith("images/")
-                ? dish.image
-                : `../../data/${dish.image}`
-          : "",
+            : dish.image
+              ? `../../data/${dish.image}`
+              : "",
       };
     })
   );
@@ -195,14 +192,14 @@ const mapMenuData = (raw) => {
         tag: "Crêpes dolços",
         title: "Crêpe de Nutella",
         description: "Dulce, cremosa y hecha al momento.",
-        imageUrl: "../../data/images/dishes/sweet-crepes/crepe-nutella.jpg",
+        imageUrl: "images/dishes/Crepe nutella.jpg",
       },
       {
         id: "slide-empanada-entrana",
         tag: "Empanades",
         title: "Empanada Real de Entraña",
         description: "Masa dorada, relleno jugoso y sabor argentino.",
-        imageUrl: "../../data/images/dishes/empanadas/empanada-argentina-real-entrana.jpg",
+        imageUrl: "images/dishes/empanada argentina real entraña.jpg",
       }
     ],
     categories,
