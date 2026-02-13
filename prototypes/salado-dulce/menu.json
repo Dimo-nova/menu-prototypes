@@ -121,16 +121,6 @@
           "allergens": ["gluten"],
           "isSignature": false,
           "tags": []
-        },
-        {
-          "id": "empanada_oliva_emmental",
-          "name": "Empanada d'Oliva Negra i Formatge Emmental",
-          "description": "Empanada farcida d'oliva negra i formatge Emmental fos.",
-          "price": "3,00 €",
-          "image": null,
-          "allergens": ["gluten", "lacteos"],
-          "isSignature": false,
-          "tags": []
         }
       ]
     },
@@ -207,16 +197,6 @@
           "tags": ["popular"]
         },
         {
-          "id": "batut_milkshake",
-          "name": "Batuts Milkshake",
-          "description": "Batuts milkshake, tria els teus sabors preferits.",
-          "price": "5,00 €",
-          "image": null,
-          "allergens": ["lacteos"],
-          "isSignature": false,
-          "tags": []
-        },
-        {
           "id": "apple_crumble",
           "name": "Apple Crumble (Sense Gluten)",
           "description": "Mix de poma i pera al forn amb canyella, crumble de civada torrada, nous i sucre morè, servit tebi amb gelat ecològic. Postres sense gluten i molt baixes en sucre.",
@@ -238,17 +218,17 @@
           "name": "Orxata Fresca Km 0",
           "description": "La millor orxata artesana del Maresme, sense conservants ni additius. Ens la porten cada dia. També disponible a litres (8 € / amb bidó 7 €). Avisa'ns un dia abans per a litres.",
           "price": "2,90 €",
-          "image": null,
+          "image": "data/images/dishes/bebidas/Orxata-km0.jpg",
           "allergens": [],
           "isSignature": true,
           "tags": ["km0"]
         },
         {
-          "id": "agua_cerveza",
-          "name": "Aigua Mineral / Cervesa Estrella",
-          "description": "Aigua mineral i cervesa Estrella per acompanyar el teu menjar.",
+          "id": "cerveza_estrella",
+          "name": "Cervesa Estrella",
+          "description": "Cervesa Estrella per acompanyar el teu menjar.",
           "price": null,
-          "image": null,
+          "image": "data/images/dishes/bebidas/estrella galicia.jpg",
           "allergens": [],
           "isSignature": false,
           "tags": []
@@ -258,7 +238,7 @@
           "name": "Xocolata Calenta a la Tassa",
           "description": "La millor xocolata amb recepta d'abans i cacau ecològic.",
           "price": "2,50 €",
-          "image": null,
+          "image": "data/images/dishes/bebidas/chocolate caliente.jpg",
           "allergens": ["lacteos"],
           "isSignature": false,
           "tags": []
