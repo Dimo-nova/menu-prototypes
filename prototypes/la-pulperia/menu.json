@@ -24,7 +24,6 @@
     },
     {
       "id": "slider-carne",
-      "tag": "De carne",
       "title": "Cortes tradicionales",
       "description": "Carnes a la parrilla y guisos.",
       "imageUrl": "../../data/images/dishes/carne/chuleton-de-ternera.jpg"
@@ -78,23 +77,14 @@
       "name": "Para Picar",
       "subtitle": "Clasicos para compartir",
       "dishes": [
-        {
-          "id": "verbena_ahumados",
-          "name": "Verbena de ahumados",
-          "description": "",
-          "price": "24,00 EUR",
-          "image": null,
-          "allergens": [],
-          "isSignature": false,
-          "tags": []
-        },
+        
         {
           "id": "empanada_atun",
           "name": "Empanada casera de atun",
           "description": "",
           "price": "7,50 EUR",
-          "image": null,
-          "allergens": [],
+          "image": "/images/dishes/empanadas/empanada-general.jpg",
+          "allergens": ["gluten"],
           "isSignature": false,
           "tags": []
         },
@@ -103,7 +93,7 @@
           "name": "Pulpo a la gallega",
           "description": "",
           "price": "23,00 EUR",
-          "image": null,
+          "image": "/images/dishes/entrantes/pulpo-a-la-gallega.jpg",
           "allergens": [],
           "isSignature": false,
           "tags": []
@@ -114,7 +104,7 @@
           "description": "8 uds. jamon, bacalao/morcilla",
           "price": "15,50 EUR",
           "image": "/images/dishes/entrantes/croquetas.jpg",
-          "allergens": [],
+          "allergens": ["gluten"],
           "isSignature": false,
           "tags": []
         }
@@ -130,8 +120,8 @@
           "name": "Alcachofas con jamon iberico",
           "description": "",
           "price": "17,00 EUR",
-          "image": null,
-          "allergens": [],
+          "image": "/images/dishes/entrantes/alcachofas-con-jamon.jpg",
+          "allergens": ["consultar"],
           "isSignature": false,
           "tags": []
         },
@@ -140,8 +130,8 @@
           "name": "Trigueros con ali-oli",
           "description": "",
           "price": "16,50 EUR",
-          "image": null,
-          "allergens": [],
+          "image": "/images/dishes/verdura/trigueros-con-alioli.jpg",
+          "allergens": ["huevos"],
           "isSignature": false,
           "tags": []
         },
@@ -150,8 +140,8 @@
           "name": "Ensalada de tomate",
           "description": "Con ventresca",
           "price": "15,00 EUR",
-          "image": null,
-          "allergens": [],
+          "image": "/images/dishes/entrantes/ensalada-tomate-ventresca.jpg",
+          "allergens": ["pescado"],
           "isSignature": false,
           "tags": []
         },
@@ -177,8 +167,8 @@
           "name": "Dorada a la sal",
           "description": "2 pax",
           "price": "48,00 EUR",
-          "image": null,
-          "allergens": [],
+          "image": "/images/dishes/pescado/dorada-a-la-sal.jpg",
+          "allergens": ["pescado"],
           "isSignature": false,
           "tags": []
         },
@@ -187,8 +177,8 @@
           "name": "Tartar de atun",
           "description": "",
           "price": "21,50 EUR",
-          "image": null,
-          "allergens": [],
+          "image": "/images/dishes/pescado/tartar-de-atun.jpg",
+          "allergens": ["pescado"],
           "isSignature": false,
           "tags": []
         },
@@ -197,8 +187,8 @@
           "name": "Brocheta de chipirones",
           "description": "Con gambas",
           "price": "17,00 EUR",
-          "image": "/images/dishes/marisco/gambas-ajillo.webp",
-          "allergens": [],
+          "image": "/images/dishes/entrantes/brocheta-chipirones.jpg",
+          "allergens": ["moluscos", "crustaceos"],
           "isSignature": false,
           "tags": []
         },
@@ -207,8 +197,8 @@
           "name": "Bacalao al hojaldre",
           "description": "Puerros y gambas",
           "price": "24,00 EUR",
-          "image": null,
-          "allergens": [],
+          "image": "/images/dishes/pescado/bacalao-al-hojaldre.jpg",
+          "allergens": ["gluten", "lacteos", "pescado"],
           "isSignature": false,
           "tags": []
         }
@@ -224,9 +214,9 @@
           "name": "Tarta de queso",
           "description": "SIN GLUTEN",
           "price": "8,00 EUR",
-          "image": null,
+          "image": "/images/dishes/postres/tarta-de-queso.jpg",
           "allergensText": "Sin gluten",
-          "allergens": [],
+          "allergens": ["lacteos", "huevos", "sin_gluten"],
           "isSignature": false,
           "tags": []
         },
@@ -235,8 +225,8 @@
           "name": "Tatin de manzana",
           "description": "Con crema inglesa",
           "price": "8,00 EUR",
-          "image": null,
-          "allergens": [],
+          "image": "/images/dishes/postres/tatin-de-manzana.jpg",
+          "allergens": ["gluten", "lacteos", "huevos"],
           "isSignature": false,
           "tags": []
         },
@@ -246,7 +236,7 @@
           "description": "Con helado vainilla",
           "price": "8,00 EUR",
           "image": "/images/dishes/postres/torrijas.webp",
-          "allergens": [],
+          "allergens": ["gluten", "lacteos", "huevos"],
           "isSignature": false,
           "tags": []
         },
@@ -255,8 +245,8 @@
           "name": "Arroz con leche",
           "description": "",
           "price": "8,00 EUR",
-          "image": null,
-          "allergens": [],
+          "image": "/images/dishes/postres/arroz-con-leche.jpg",
+          "allergens": ["lacteos"],
           "isSignature": false,
           "tags": []
         }

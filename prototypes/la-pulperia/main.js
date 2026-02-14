@@ -101,6 +101,16 @@ const dom = {
   dishModalMedia: document.getElementById("dishModalMedia"),
   dishModalBody: document.getElementById("dishModalBody"),
   dishModalClose: document.getElementById("dishModalClose"),
+  dailyMenuButton: document.getElementById("dailyMenuButton"),
+  dailyMenuOverlay: document.getElementById("dailyMenuOverlay"),
+  dailyMenuContent: document.getElementById("dailyMenuContent"),
+  dailyMenuBody: document.getElementById("dailyMenuBody"),
+  dailyMenuClose: document.getElementById("dailyMenuClose"),
+};
+
+const dailyMenuConfig = {
+  primeros: ["ensalada_tomate", "alcachofas_jamon", "empanada_atun"],
+  segundos: ["brocheta_chipirones", "bacalao_hojaldre", "dorada_sal"],
 };
 
 const normalizeLabel = (value) =>
@@ -592,6 +602,61 @@ const closeDishModal = () => {
   }, 350);
 };
 
+const renderDailyMenu = () => {
+  if (!dom.dailyMenuBody) return;
+  const findDish = (id) => data.dishes.find((dish) => dish.id === id);
+  const buildItems = (ids) =>
+    ids
+      .map((id) => {
+        const dish = findDish(id);
+        if (!dish) return "";
+        const desc = dish.shortDesc
+          ? `<span class="daily-menu-desc">${dish.shortDesc}</span>`
+          : "";
+        return `
+          <li class="daily-menu-item">
+            <span class="daily-menu-name">${dish.title}</span>
+            ${desc}
+          </li>
+        `;
+      })
+      .join("");
+
+  dom.dailyMenuBody.innerHTML = `
+    <h3 class="daily-menu-title">Menu del dia</h3>
+    <p class="daily-menu-subtitle">Primeros y segundos a elegir.</p>
+    <div class="daily-menu-section">
+      <h4>Primeros</h4>
+      <ul class="daily-menu-list">
+        ${buildItems(dailyMenuConfig.primeros)}
+      </ul>
+    </div>
+    <div class="daily-menu-section">
+      <h4>Segundos</h4>
+      <ul class="daily-menu-list">
+        ${buildItems(dailyMenuConfig.segundos)}
+      </ul>
+    </div>
+    <p class="daily-menu-note">Postre o cafe incluido.</p>
+  `;
+};
+
+const openDailyMenu = () => {
+  if (!dom.dailyMenuOverlay || !dom.dailyMenuContent) return;
+  dom.dailyMenuOverlay.classList.add("open");
+  dom.dailyMenuContent.classList.add("open");
+  document.body.style.overflow = "hidden";
+};
+
+const closeDailyMenu = () => {
+  if (!dom.dailyMenuOverlay || !dom.dailyMenuContent) return;
+  dom.dailyMenuOverlay.classList.remove("open");
+  dom.dailyMenuContent.classList.remove("open");
+  setTimeout(() => {
+    document.body.style.overflow = "unset";
+  }, 350);
+};
+
 const setActiveNavOnScroll = () => {
   const links = [...dom.categoryNav.querySelectorAll("a")];
   const sections = [...document.querySelectorAll("section[id]")];
@@ -645,6 +710,7 @@ const setActiveNavOnScroll = () => {
 const init = () => {
   renderSlider();
   renderMenu();
+  renderDailyMenu();
 
   dom.celiacFilter.addEventListener("change", (event) => {
     state.celiacFilter = event.target.checked;
@@ -674,6 +740,20 @@ const init = () => {
       closeDishModal();
     }
   });
+
+  if (dom.dailyMenuButton) {
+    dom.dailyMenuButton.addEventListener("click", openDailyMenu);
+  }
+  if (dom.dailyMenuClose) {
+    dom.dailyMenuClose.addEventListener("click", closeDailyMenu);
+  }
+  if (dom.dailyMenuOverlay) {
+    dom.dailyMenuOverlay.addEventListener("click", (event) => {
+      if (event.target === dom.dailyMenuOverlay) {
+        closeDailyMenu();
+      }
+    });
+  }
 };
 
 fetch("menu.json")
