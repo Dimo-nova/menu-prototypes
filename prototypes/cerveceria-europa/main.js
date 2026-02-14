@@ -192,7 +192,7 @@ const mapMenuData = (raw) => {
             price: formatPrice(option.price || ""),
           }))
           : [],
-        badge: dish.isSignature ? "Destacado" : "",
+        badge: dish.badge || (dish.isSignature ? "Destacado" : ""),
         shortDesc: dish.description || "",
         longDesc: longDesc || dish.description,
         allergens: allergensText,

@@ -81,13 +81,14 @@
         {
           "id": "empanada_atun",
           "name": "Empanada casera de atun",
-          "description": "",
+          "description": "Masa crujiente con atun y sofrito tradicional.",
           "price": "7,50 EUR",
           "priceOptions": [
             { "label": "Tapa", "price": "3,00 €" },
             { "label": "Media", "price": "5,00 €" },
             { "label": "Racion", "price": "7,50 €" }
           ],
+          "badge": "",
           "image": "/images/dishes/empanadas/empanada-general.jpg",
           "allergens": ["gluten"],
           "isSignature": false,
@@ -96,16 +97,17 @@
         {
           "id": "pulpo_gallega",
           "name": "Pulpo a la gallega",
-          "description": "",
+          "description": "Pulpo tierno con patata, pimenton y AOVE.",
           "price": "23,00 EUR",
           "priceOptions": [
             { "label": "Tapa", "price": "9,00 €" },
             { "label": "Media", "price": "14,50 €" },
             { "label": "Racion", "price": "23,00 €" }
           ],
+          "badge": "Nuevo!",
           "image": "/images/dishes/entrantes/pulpo-a-la-gallega.jpg",
           "allergens": [],
-          "isSignature": false,
+          "isSignature": true,
           "tags": []
         },
         {
@@ -118,9 +120,10 @@
             { "label": "Media", "price": "10,00 €" },
             { "label": "Racion", "price": "15,50 €" }
           ],
+          "badge": "Destacado",
           "image": "/images/dishes/entrantes/croquetas.jpg",
           "allergens": ["gluten"],
-          "isSignature": false,
+          "isSignature": true,
           "tags": []
         }
       ]
@@ -133,13 +136,14 @@
         {
           "id": "alcachofas_jamon",
           "name": "Alcachofas con jamon iberico",
-          "description": "",
+          "description": "Alcachofas salteadas con lascas de jamon.",
           "price": "17,00 EUR",
           "priceOptions": [
             { "label": "Tapa", "price": "6,50 €" },
             { "label": "Media", "price": "11,00 €" },
             { "label": "Racion", "price": "17,00 €" }
           ],
+          "badge": "",
           "image": "/images/dishes/entrantes/alcachofas-con-jamon.jpg",
           "allergens": ["consultar"],
           "isSignature": false,
@@ -148,13 +152,14 @@
         {
           "id": "trigueros_alioli",
           "name": "Trigueros con ali-oli",
-          "description": "",
+          "description": "Esparragos trigueros a la plancha con ali-oli suave.",
           "price": "16,50 EUR",
           "priceOptions": [
             { "label": "Tapa", "price": "6,00 €" },
             { "label": "Media", "price": "10,50 €" },
             { "label": "Racion", "price": "16,50 €" }
           ],
+          "badge": "",
           "image": "/images/dishes/verdura/trigueros-con-alioli.jpg",
           "allergens": ["huevos"],
           "isSignature": false,
@@ -170,6 +175,7 @@
             { "label": "Media", "price": "9,50 €" },
             { "label": "Racion", "price": "15,00 €" }
           ],
+          "badge": "",
           "image": "/images/dishes/entrantes/ensalada-tomate-ventresca.jpg",
           "allergens": ["pescado"],
           "isSignature": false,
@@ -178,13 +184,14 @@
         {
           "id": "pimientos_padron",
           "name": "Pimientos del Padron",
-          "description": "",
+          "description": "Pimientos fritos con sal en escamas.",
           "price": "9,00 EUR",
           "priceOptions": [
             { "label": "Tapa", "price": "3,50 €" },
             { "label": "Media", "price": "6,00 €" },
             { "label": "Racion", "price": "9,00 €" }
           ],
+          "badge": "",
           "image": "/images/dishes/entrantes/padron.jpg",
           "allergens": [],
           "isSignature": false,
@@ -202,6 +209,7 @@
           "name": "Dorada a la sal",
           "description": "2 pax",
           "price": "48,00 EUR",
+          "badge": "",
           "image": "/images/dishes/pescado/dorada-a-la-sal.jpg",
           "allergens": ["pescado"],
           "isSignature": false,
@@ -210,13 +218,14 @@
         {
           "id": "tartar_atun",
           "name": "Tartar de atun",
-          "description": "",
+          "description": "Atun rojo marinado con toques citricos.",
           "price": "21,50 EUR",
           "priceOptions": [
             { "label": "Tapa", "price": "8,50 €" },
             { "label": "Media", "price": "14,00 €" },
             { "label": "Racion", "price": "21,50 €" }
           ],
+          "badge": "",
           "image": "/images/dishes/pescado/tartar-de-atun.jpg",
           "allergens": ["pescado"],
           "isSignature": false,
@@ -232,9 +241,10 @@
             { "label": "Media", "price": "11,00 €" },
             { "label": "Racion", "price": "17,00 €" }
           ],
+          "badge": "Selección del chef",
           "image": "/images/dishes/entrantes/brocheta-chipirones.jpg",
           "allergens": ["moluscos", "crustaceos"],
-          "isSignature": false,
+          "isSignature": true,
           "tags": []
         },
         {
@@ -242,9 +252,10 @@
           "name": "Bacalao al hojaldre",
           "description": "Puerros y gambas",
           "price": "24,00 EUR",
+          "badge": "Destacado",
           "image": "/images/dishes/pescado/bacalao-al-hojaldre.jpg",
           "allergens": ["gluten", "lacteos", "pescado"],
-          "isSignature": false,
+          "isSignature": true,
           "tags": []
         }
       ]
@@ -257,8 +268,9 @@
         {
           "id": "tarta_queso",
           "name": "Tarta de queso",
-          "description": "SIN GLUTEN",
+          "description": "Tarta de queso especialidad de la casa, con base de galleta y textura cremosa.",
           "price": "8,00 EUR",
+          "badge": "Sin gluten",
           "image": "/images/dishes/postres/tarta-de-queso.jpg",
           "allergensText": "Sin gluten",
           "allergens": ["lacteos", "huevos", "sin_gluten"],
@@ -270,6 +282,7 @@
           "name": "Tatin de manzana",
           "description": "Con crema inglesa",
           "price": "8,00 EUR",
+          "badge": "",
           "image": "/images/dishes/postres/tatin-de-manzana.jpg",
           "allergens": ["gluten", "lacteos", "huevos"],
           "isSignature": false,
@@ -280,6 +293,7 @@
           "name": "Torrija de la abuela",
           "description": "Con helado vainilla",
           "price": "8,00 EUR",
+          "badge": "",
           "image": "/images/dishes/postres/torrijas.webp",
           "allergens": ["gluten", "lacteos", "huevos"],
           "isSignature": false,
@@ -288,8 +302,9 @@
         {
           "id": "arroz_leche",
           "name": "Arroz con leche",
-          "description": "",
+          "description": "Arroz cremoso con canela y limon.",
           "price": "8,00 EUR",
+          "badge": "",
           "image": "/images/dishes/postres/arroz-con-leche.jpg",
           "allergens": ["lacteos"],
           "isSignature": false,
@@ -311,7 +326,8 @@
             { "label": "33cl", "price": "4,50 €" },
             { "label": "50cl", "price": "6,00 €" }
           ],
-          "image": "",
+          "badge": "",
+          "image": "/images/dishes/bebidas/Guiness.jpg",
           "allergens": ["gluten"],
           "isSignature": false,
           "tags": []
@@ -325,7 +341,8 @@
             { "label": "33cl", "price": "5,00 €" },
             { "label": "50cl", "price": "6,00 €" }
           ],
-          "image": "",
+          "badge": "",
+          "image": "/images/dishes/bebidas/delirium tremens.jpg",
           "allergens": ["gluten"],
           "isSignature": false,
           "tags": []
@@ -339,7 +356,8 @@
             { "label": "33cl", "price": "4,50 €" },
             { "label": "50cl", "price": "5,50 €" }
           ],
-          "image": "",
+          "badge": "",
+          "image": "/images/dishes/bebidas/duvel 666.jpg",
           "allergens": ["gluten"],
           "isSignature": false,
           "tags": []
@@ -356,17 +374,8 @@
           "name": "Rioja crianza",
           "description": "Copa",
           "price": "4,00 EUR",
-          "image": "",
-          "allergens": [],
-          "isSignature": false,
-          "tags": []
-        },
-        {
-          "id": "ribera_roble",
-          "name": "Ribera del Duero roble",
-          "description": "Copa",
-          "price": "4,50 EUR",
-          "image": "",
+          "badge": "",
+          "image": "/images/dishes/bebidas/Ribera del duero.jpg",
           "allergens": [],
           "isSignature": false,
           "tags": []
@@ -376,7 +385,8 @@
           "name": "Verdejo",
           "description": "Copa",
           "price": "4,00 EUR",
-          "image": "",
+          "badge": "",
+          "image": "/images/dishes/bebidas/vino blanco verdejo.jpg",
           "allergens": [],
           "isSignature": false,
           "tags": []
@@ -386,7 +396,8 @@
           "name": "Cava brut",
           "description": "Copa",
           "price": "4,20 EUR",
-          "image": "",
+          "badge": "",
+          "image": "/images/dishes/bebidas/cava brut.jpg",
           "allergens": [],
           "isSignature": false,
           "tags": []
