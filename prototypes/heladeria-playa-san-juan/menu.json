@@ -1,10 +1,10 @@
 {
   "restaurant": {
-    "name": "Salado Dulce",
-    "tagline": "Crêpes, empanadas argentinas, helados ecológicos y mucho más",
-    "location": "Barcelona",
-    "hours": "10:00–22:00",
-    "phone": "+34 93 000 000",
+    "name": "Heladeria Playa San Juan",
+    "tagline": "Copas de helado, batidos, granizados y desayunos frente al mar",
+    "location": "Playa San Juan",
+    "hours": "09:00–23:30",
+    "phone": "+34 96 000 000",
     "currency": "EUR"
   },
   "allergens": [
@@ -14,19 +14,9 @@
       "icon": "images/alergenos/gluten.svg"
     },
     {
-      "id": "lacteos",
-      "name": "Lácteos",
-      "icon": "images/alergenos/lacteos.svg"
-    },
-    {
       "id": "huevos",
       "name": "Huevos",
       "icon": "images/alergenos/huevos.svg"
-    },
-    {
-      "id": "frutos_cascara",
-      "name": "Frutos de cáscara",
-      "icon": "images/alergenos/frutos_cascara.svg"
     },
     {
       "id": "cacahuetes",
@@ -34,212 +24,219 @@
       "icon": "images/alergenos/cacahuetes.svg"
     },
     {
+      "id": "soja",
+      "name": "Soja",
+      "icon": "images/alergenos/soja.svg"
+    },
+    {
+      "id": "lacteos",
+      "name": "Lácteos",
+      "icon": "images/alergenos/lacteos.svg"
+    },
+    {
+      "id": "frutos_cascara",
+      "name": "Frutos de cáscara",
+      "icon": "images/alergenos/frutos_cascara.svg"
+    },
+    {
       "id": "granos_sesamo",
       "name": "Granos de sésamo",
       "icon": "images/alergenos/granos_sesamo.svg"
+    },
+    {
+      "id": "sulfitos",
+      "name": "Sulfitos",
+      "icon": "images/alergenos/dióxido-azufre-sulfitos.svg"
+    },
+    {
+      "id": "pescado",
+      "name": "Pescado",
+      "icon": "images/alergenos/pescado.svg"
+    }
+  ],
+  "flavorCatalog": [
+    {
+      "title": "Sabores de helados",
+      "items": [
+        { "name": "Black Panter", "allergens": ["lacteos"] },
+        { "name": "Arroz con Leche", "allergens": ["lacteos"] },
+        { "name": "Chocolate Puro con Naranja", "allergens": ["soja", "lacteos"] },
+        { "name": "Chocolate Puro (1er Premio)", "allergens": ["soja", "lacteos"] },
+        { "name": "Chocolate Leche", "allergens": ["soja", "lacteos"] },
+        { "name": "Trufa", "allergens": ["cacahuetes", "soja", "lacteos", "frutos_cascara"] },
+        { "name": "Chocolate Blanco", "allergens": ["soja", "lacteos"] },
+        { "name": "Chocolate Vegano", "allergens": ["soja"] },
+        { "name": "Turrón D.O. Jijona", "allergens": ["huevos", "soja", "lacteos", "frutos_cascara"] },
+        { "name": "Nata", "allergens": ["soja", "lacteos"] },
+        { "name": "Nata Nueces Caramelizadas", "allergens": ["soja", "lacteos", "frutos_cascara"] },
+        { "name": "Straciatella", "allergens": ["cacahuetes", "soja", "lacteos", "frutos_cascara"] },
+        { "name": "Mantecado", "allergens": ["huevos", "lacteos"] },
+        { "name": "Tutti-frutti", "allergens": ["huevos", "lacteos"] },
+        { "name": "Macadamia con Dulce de Leche", "allergens": ["soja", "lacteos", "frutos_cascara"] },
+        { "name": "Leche Merengada", "allergens": ["soja", "lacteos"] },
+        { "name": "Dulce de Leche", "allergens": ["soja", "lacteos"] },
+        { "name": "Málaga con Pasas", "allergens": ["huevos", "soja", "lacteos", "sulfitos"] },
+        { "name": "Café Arábico", "allergens": ["soja", "lacteos"] },
+        { "name": "Oreo", "allergens": ["gluten", "soja", "lacteos"] },
+        { "name": "Kukis", "allergens": ["gluten", "huevos", "lacteos"] },
+        { "name": "Kukichoc", "allergens": ["gluten", "soja", "lacteos"] },
+        { "name": "Nube", "allergens": ["soja", "lacteos"] },
+        { "name": "Kinder", "allergens": ["soja", "lacteos", "frutos_cascara"] },
+        { "name": "Avellana", "allergens": ["lacteos", "frutos_cascara"] },
+        { "name": "Pistacho", "allergens": ["lacteos", "frutos_cascara"] },
+        { "name": "Cremino (Mar de Sabores)", "allergens": ["lacteos", "frutos_cascara"] },
+        { "name": "Menta", "allergens": ["cacahuetes", "soja", "lacteos", "frutos_cascara", "granos_sesamo"] },
+        { "name": "Manzana verde", "allergens": ["lacteos"] },
+        { "name": "Fresa Ácida", "allergens": [] },
+        { "name": "Limón", "allergens": [] },
+        { "name": "Melón", "allergens": [] },
+        { "name": "Brevas (Temporada)", "allergens": [] },
+        { "name": "Mango", "allergens": ["lacteos"] },
+        { "name": "Coco", "allergens": ["soja", "lacteos"] },
+        { "name": "Frambuesa", "allergens": [] },
+        { "name": "Maracuyá", "allergens": [] },
+        { "name": "Plátano con Galleta Espéculo", "allergens": ["gluten", "soja", "lacteos"] },
+        { "name": "Queso Alemán con Naranja", "allergens": ["soja", "lacteos"] },
+        { "name": "Requesón con Miel y Nueces", "allergens": ["soja", "lacteos", "frutos_cascara"] },
+        { "name": "Mascarpone con Bizcocho y Fresas Silvestres", "allergens": ["gluten", "huevos", "soja", "lacteos"] },
+        { "name": "Yogur con Manzana Asada", "allergens": ["lacteos"] },
+        { "name": "Yogur con Arándanos", "allergens": ["lacteos"] }
+      ]
+    },
+    {
+      "title": "Sabores de helados sin azúcar añadido",
+      "items": [
+        { "name": "Turrón", "allergens": ["huevos", "soja", "lacteos", "frutos_cascara"] },
+        { "name": "Chocolate", "allergens": ["soja", "lacteos"] },
+        { "name": "Vainilla", "allergens": ["soja", "lacteos"] },
+        { "name": "Leche Merengada", "allergens": ["soja", "lacteos"] }
+      ]
     }
   ],
   "categories": [
     {
-      "id": "crepes_salados",
-      "name": "Crêpes Salados",
-      "subtitle": "Crêpes salados artesanales",
+      "id": "copas_helado",
+      "name": "Copas de helado",
+      "subtitle": "Copas especiales con nuestros sabores estrella",
       "dishes": [
         {
-          "id": "crepe_jamon_emmental",
-          "name": "Crêpe de Jamón Dulce y Queso Emmental",
-          "description": "Crêpe de jamón dulce y queso Emmental. Si lo deseas, puedes añadir un huevo ecológico fresco de gallinas libres de Vilassar de Dalt (suplemento 0,50 €).",
-          "price": "5,00 €",
-          "image": "data/images/dishes/crepes/crepe-pernil-dolc-emmental.jpg",
-          "allergens": ["gluten", "lacteos", "huevos"],
-          "isSignature": false,
-          "tags": []
+          "id": "copa_ebano",
+          "name": "Copa Ébano",
+          "description": "Exquisito Chocolate Puro (1er Premio), Chocolate con Leche y Trufa, salpicado con sirope de chocolate crujiente y nata montada.",
+          "price": "6,90 €",
+          "image": "data/images/dishes/helados/ebano.jpg",
+          "allergens": ["cacahuetes", "soja", "lacteos", "frutos_cascara"],
+          "isSignature": true,
+          "tags": ["destacado"]
         },
         {
-          "id": "crepe_agosto",
-          "name": "Crêpe de Agosto",
-          "description": "Bacon, brie, salsa de tomate, tomates cherry naturales y orégano. Puedes complementar este crêpe con hojas verdes de rúcula (0,50 €).",
-          "price": "6,00 €",
-          "image": "data/images/dishes/crepes/crepe-agosto-bacon-brie-tomate-oregano.jpg",
-          "allergens": ["gluten", "lacteos", "huevos"],
+          "id": "copa_alhambra",
+          "name": "Copa Alhambra",
+          "description": "Helado de Ferrero Rocher, Málaga con Pasas y Cremino (Mar de Sabores), nata montada, siropes y nueces caramelizadas.",
+          "price": "6,90 €",
+          "image": "data/images/dishes/helados/copa alhambra.jpg",
+          "allergens": ["gluten", "huevos", "cacahuetes", "soja", "lacteos", "frutos_cascara", "granos_sesamo", "sulfitos"],
           "isSignature": true,
           "tags": ["popular"]
-        },
+        }
+      ]
+    },
+    {
+      "id": "tarrinas",
+      "name": "Tarrinas",
+      "subtitle": "Tu helado favorito listo para llevar",
+      "dishes": [
         {
-          "id": "crepe_pavo_berenjena",
-          "name": "Crêpe de Pavo a la Plancha",
-          "description": "Crêpe de pavo a la plancha, carpaccio de berenjena y vinagreta de oliva negra. Se puede complementar con hojas verdes de rúcula y tomatitos cherry (0,50 €).",
-          "price": "7,00 €",
-          "image": "data/images/dishes/crepes/crepe-de-pavo.jpg",
-          "allergens": ["gluten", "lacteos", "huevos"],
+          "id": "tarrina_pequena",
+          "name": "Tarrina Pequeña",
+          "description": "Tamaño pequeño. Consulta la carta de sabores para elegir tu helado.",
+          "price": "2,50 €",
+          "image": "data/images/dishes/helados/helado-ecologico.jpg",
+          "allergens": [],
           "isSignature": false,
           "tags": []
         },
         {
-          "id": "crepe_cabra_nous",
-          "name": "Crêpe de Queso de Cabra, Nueces y Cebolla Caramelizada",
-          "description": "Crêpe de queso de cabra, nueces y cebolla caramelizada. Puedes complementar con hojas verdes (0,50 €).",
-          "price": "7,00 €",
-          "image": "data/images/dishes/crepes/crepe-formatge-cabra-nous-ceba-caramellitzada.jpg",
-          "allergens": ["gluten", "lacteos", "huevos"],
+          "id": "tarrina_mediana",
+          "name": "Tarrina Mediana",
+          "description": "Tamaño mediano. Consulta la carta de sabores para elegir tu helado.",
+          "price": "3,40 €",
+          "image": "data/images/dishes/helados/helado-ecologico.jpg",
+          "allergens": [],
           "isSignature": false,
           "tags": []
         }
       ]
     },
     {
-      "id": "empanadas",
-      "name": "Empanadas Argentinas",
-      "subtitle": "Empanadas artesanales argentinas",
+      "id": "batidos_granizados",
+      "name": "Batidos y granizados",
+      "subtitle": "Frescos, cremosos y listos para llevar",
       "dishes": [
         {
-          "id": "empanada_entrana",
-          "name": "Empanada Argentina Real de Entraña",
-          "description": "Elaborada artesanalmente con carne de entraña cortada a cuchillo, desengrasada. Contiene cebolla, pimiento rojo, olivas negras y huevo. ¡Increíble, no habrás probado una empanada igual! Opción para llevar.",
-          "price": "3,50 €",
-          "image": "data/images/dishes/empanadas/empanada-argentina-real-entrana.jpg",
-          "allergens": ["gluten", "huevos"],
-          "isSignature": true,
-          "tags": ["estrella"]
-        },
-        {
-          "id": "empanada_espinaca",
-          "name": "Empanada de Espinacas, Piñones y Pasas",
-          "description": "Empanada de espinacas, nuez moscada, piñones y toque de pasas.",
-          "price": "3,00 €",
-          "image": "data/images/dishes/empanadas/empanada-espinacas-pasas.jpg",
-          "allergens": ["gluten", "huevos"],
+          "id": "batido",
+          "name": "Batido",
+          "description": "Batidos con helado de sabor al gusto (consulta alérgenos en la carta de sabores).",
+          "price": "4,00 €",
+          "image": "data/images/dishes/bebidas/batidos.jpg",
+          "allergens": ["lacteos"],
           "isSignature": false,
           "tags": []
         },
         {
-          "id": "empanada_humita",
-          "name": "Empanada Real de Humita",
-          "description": "Maíz dulce delicado, cebolla caramelizada y un toque de queso tierno. ¡Pruébala!",
-          "price": "3,00 €",
-          "image": "data/images/dishes/empanadas/empanada-humita.jpg",
+          "id": "batido_nata",
+          "name": "Batidos con nata",
+          "description": "Batidos con helado de sabor al gusto, decorados con nata montada (consulta alérgenos en la carta de sabores).",
+          "price": "5,00 €",
+          "image": "data/images/dishes/bebidas/batidos-nata.jpg",
+          "allergens": ["lacteos"],
+          "isSignature": true,
+          "tags": ["popular"]
+        },
+        {
+          "id": "granizado_horchata",
+          "name": "Horchata",
+          "description": "Pequeño 2,40 € · Mediano 3,00 € · Grande 3,70 € · 500 mL (para llevar) 4,20 € · 1000 mL (para llevar) 7,50 €",
+          "price": "2,40 €",
+          "image": "data/images/dishes/bebidas/horchata.jpg",
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "granizado_limon",
+          "name": "Granizado de limón",
+          "description": "Pequeño 2,40 € · Mediano 3,00 € · Grande 3,70 € · 500 mL (para llevar) 4,20 € · 1000 mL (para llevar) 7,50 €",
+          "price": "2,40 €",
+          "image": "data/images/dishes/bebidas/granizado-limon.jpg",
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "meriendas_desayunos",
+      "name": "Meriendas y desayunos",
+      "subtitle": "Bocadillos y tostadas con un ingrediente",
+      "dishes": [
+        {
+          "id": "bocadillo_jamon",
+          "name": "Bocadillo de jamón",
+          "description": "Bocadillo con un ingrediente.",
+          "price": "",
+          "image": "/images/dishes/bocadillos/bocadillo-jamon.jpg",
           "allergens": ["gluten"],
           "isSignature": false,
           "tags": []
-        }
-      ]
-    },
-    {
-      "id": "crepes_dulces",
-      "name": "Crêpes Dulces",
-      "subtitle": "Crêpes dulces para endulzar el momento",
-      "dishes": [
-        {
-          "id": "crepe_nutella",
-          "name": "Crêpe de Nutella",
-          "description": "Crêpe de crema de avellanas.",
-          "price": "5,00 €",
-          "image": "data/images/dishes/crepes/crepe-nutella.jpg",
-          "allergens": ["gluten", "lacteos", "huevos", "frutos_cascara"],
-          "isSignature": false,
-          "tags": []
         },
         {
-          "id": "crepe_melocoton",
-          "name": "Crêpe de Melocotón en Almíbar y Leche Condensada",
-          "description": "Crêpe de melocotones en almíbar con leche condensada.",
-          "price": "5,00 €",
-          "image": "data/images/dishes/crepes/crepe-pressec-almibar-llet-condensada.jpg",
-          "allergens": ["gluten", "lacteos", "huevos"],
-          "isSignature": false,
-          "tags": []
-        },
-        {
-          "id": "crepe_banana_maduixes",
-          "name": "Crêpe de Banana o Fresas, Almendras Tostadas",
-          "description": "Crêpe de fresas o banana, almendras crunchy, leche condensada o Nutella. ¡Tú decides! Suplemento: bola de helado ecológico 1,50 €.",
-          "price": "6,00 €",
-          "image": "data/images/dishes/crepes/crepe-banana-maduixes-ametlles-torrades.jpg",
-          "allergens": ["gluten", "lacteos", "huevos", "granos_sesamo", "cacahuetes"],
-          "isSignature": true,
-          "tags": ["popular"]
-        },
-        {
-          "id": "crepe_chocolat_negre",
-          "name": "Crêpe de Chocolate Negro con Bola de Helado Ecológico",
-          "description": "Crêpe de chocolate negro con una bola de helado ecológico.",
-          "price": "6,50 €",
-          "image": "data/images/dishes/crepes/crepe-chocolate-negro-bola-helado.jpg",
-          "allergens": ["gluten", "lacteos", "cacahuetes", "huevos"],
-          "isSignature": true,
-          "tags": ["destacado"]
-        }
-      ]
-    },
-    {
-      "id": "gelats",
-      "name": "Helados Ecológicos",
-      "subtitle": "Helados ecológicos artesanales de Barcelona",
-      "dishes": [
-        {
-          "id": "gelat_ecologic",
-          "name": "Helado Ecológico",
-          "description": "Disfruta del mejor helado ecológico, hecho en Barcelona. Sabores a escoger. 1 bola: 3,00 € · 2 bolas: 4,50 €.",
-          "price": "3,00 €",
-          "image": "data/images/dishes/helados/helado-ecologico.jpg",
-          "allergens": ["lacteos"],
-          "isSignature": true,
-          "tags": ["estrella"]
-        },
-        {
-          "id": "brownie_gelat",
-          "name": "Brownie con Helado",
-          "description": "Brownie artesanal con el 80% de cacao negro con helado ecológico del sabor que quieras.",
-          "price": "5,00 €",
-          "image": "data/images/dishes/helados/brownie-amb-gelat.jpg",
-          "allergens": ["lacteos", "gluten"],
-          "isSignature": true,
-          "tags": ["popular"]
-        },
-        {
-          "id": "apple_crumble",
-          "name": "Apple Crumble (Sin Gluten)",
-          "description": "Mix de manzana y pera al horno con canela, crumble de avena tostada, nueces y azúcar moreno, servido tibio con helado ecológico. Postre sin gluten y muy bajo en azúcar.",
-          "price": "5,00 €",
-          "image": "data/images/dishes/helados/apple-crumble.jpg",
-          "allergens": ["frutos_cascara", "cacahuetes"],
-          "isSignature": false,
-          "tags": ["sin gluten"]
-        }
-      ]
-    },
-    {
-      "id": "bebidas",
-      "name": "Bebidas",
-      "subtitle": "Refréscate con nuestras bebidas",
-      "dishes": [
-        {
-          "id": "orxata",
-          "name": "Orxata Fresca Km 0",
-          "description": "La mejor horchata artesana del Maresme, sin conservantes ni aditivos. Nos la traen cada día. También disponible a litros (8 € / con bidón 7 €). Avísanos un día antes para litros.",
-          "price": "2,90 €",
-          "image": "data/images/dishes/bebidas/Orxata-km0.jpg",
-          "allergens": [],
-          "isSignature": true,
-          "tags": ["km0"]
-        },
-        {
-          "id": "cerveza_estrella",
-          "name": "Cerveza Estrella",
-          "description": "Cerveza Estrella para acompañar tu comida.",
-          "price": null,
-          "image": "data/images/dishes/bebidas/estrella galicia.jpg",
-          "allergens": [],
-          "isSignature": false,
-          "tags": []
-        },
-        {
-          "id": "chocolate_caliente",
-          "name": "Chocolate Caliente a la Taza",
-          "description": "El mejor chocolate con receta de antaño y cacao ecológico.",
-          "price": "2,50 €",
-          "image": "data/images/dishes/bebidas/chocolate caliente.jpg",
-          "allergens": ["lacteos"],
+          "id": "bocadillo_queso",
+          "name": "Bocadillo de queso",
+          "description": "Bocadillo con un ingrediente.",
+          "price": "",
+          "image": "/images/dishes/bocadillos/bocadillo-queso.jpg",
+          "allergens": ["gluten", "lacteos"],
           "isSignature": false,
           "tags": []
         }

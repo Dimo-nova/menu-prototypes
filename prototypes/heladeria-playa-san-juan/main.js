@@ -3,6 +3,7 @@ let data = {
   categories: [],
   dishes: [],
   allergens: [],
+  flavorCatalog: [],
   restaurant: null,
 };
 
@@ -70,6 +71,12 @@ const categoryIconMap = {
   licores: "fa-whiskey-glass",
   destilados: "fa-whiskey-glass",
   batidos: "fa-blender",
+  "copas de helado": "fa-ice-cream",
+  tarrinas: "fa-ice-cream",
+  "batidos y granizados": "fa-blender",
+  "meriendas y desayunos": "fa-mug-saucer",
+  "Batidos": "fa-blender",
+  "Granizados": "fa-water",
 };
 
 const state = {
@@ -78,11 +85,13 @@ const state = {
   celiacFilter: false,
   scrollHandler: null,
   activeCategoryId: "",
+  selectedCategoryId: "",
 };
 
 const dom = {
   categoryNav: document.getElementById("categoryNav"),
   menuSections: document.getElementById("menuSections"),
+  heroSlider: document.getElementById("heroSlider"),
   sliderContainer: document.getElementById("sliderContainer"),
   sliderDots: document.getElementById("sliderDots"),
   sliderPrev: document.getElementById("sliderPrev"),
@@ -94,9 +103,13 @@ const dom = {
   dishModalMedia: document.getElementById("dishModalMedia"),
   dishModalBody: document.getElementById("dishModalBody"),
   dishModalClose: document.getElementById("dishModalClose"),
-  orderPopupOverlay: document.getElementById("orderPopupOverlay"),
-  orderPopupClose: document.getElementById("orderPopupClose"),
-  orderPopupButton: document.getElementById("orderPopupButton"),
+  flavorButton: document.getElementById("flavorButton"),
+  flavorModalOverlay: document.getElementById("flavorModalOverlay"),
+  flavorModalBody: document.getElementById("flavorModalBody"),
+  flavorModalClose: document.getElementById("flavorModalClose"),
+  landingOptions: document.getElementById("landingOptions"),
+  menuView: document.getElementById("menuView"),
+  backToLanding: document.getElementById("backToLanding"),
 };
 
 const normalizeLabel = (value) =>
@@ -137,6 +150,21 @@ const buildAllergenMaps = (allergens) => {
   normalizedAllergenImageMap = Object.fromEntries(
     Object.entries(allergenImageMap).map(([key, value]) => [normalizeLabel(key), value])
   );
+};
+
+const renderAllergenIcons = (allergens, container) => {
+  const list = Array.isArray(allergens) ? allergens : parseAllergens(allergens);
+  if (!list.length) return;
+  list.forEach((allergen) => {
+    const imagePath = normalizedAllergenImageMap[normalizeLabel(allergen)];
+    if (!imagePath) return;
+    const icon = document.createElement("img");
+    icon.src = imagePath;
+    icon.alt = allergen;
+    icon.className = "allergen-icon";
+    icon.title = allergen;
+    container.appendChild(icon);
+  });
 };
 
 
@@ -182,33 +210,44 @@ const mapMenuData = (raw) => {
     })
   );
 
+  const flavorCatalog = (raw.flavorCatalog || []).map((group) => ({
+    title: group.title,
+    items: (group.items || []).map((item) => ({
+      name: item.name,
+      allergens: (item.allergens || [])
+        .map((id) => allergenNameById.get(id))
+        .filter(Boolean),
+    })),
+  }));
+
   return {
     sliders: [
       {
-        id: "slide-foodtruck",
-        tag: "Foodtruck",
-        title: "Nuestro foodtruck",
-        description: "Crêpes y helados ecológicos hechos al momento.",
-        imageUrl: "images/brand/foto-foodtruck.jpg",
+        id: "slide-helados",
+        tag: "Helados",
+        title: "Tarrinas artesanas",
+        description: "Sabores intensos y combinaciones especiales.",
+        imageUrl: "../../data/images/dishes/helados/helado-ecologico.jpg",
       },
       {
-        id: "slide-crepe-nutella",
-        tag: "Crêpes dulces",
-        title: "Crêpe de Nutella",
-        description: "Dulce, cremosa y hecha al momento.",
-        imageUrl: "../../data/images/dishes/crepes/crepe-nutella.jpg",
+        id: "slide-batidos",
+        tag: "Especialidad",
+        title: "Granizado de limón",
+        description: "Refrescantes y listo para llevar.",
+        imageUrl: "../../data/images/dishes/bebidas/horchata.jpg",
       },
       {
-        id: "slide-empanada-entrana",
-        tag: "Empanadas",
-        title: "Empanada Real de Entraña",
-        description: "Masa dorada, relleno jugoso y sabor argentino.",
-        imageUrl: "../../data/images/dishes/empanadas/empanada-argentina-real-entrana.jpg",
+        id: "slide-desayunos",
+        tag: "Desayunos",
+        title: "Meriendas con bocadillos",
+        description: "Opciones sencillas para empezar el dia.",
+        imageUrl: "../../data/images/dishes/helados/brownie-amb-gelat.jpg",
       }
     ],
     categories,
     dishes,
     allergens: raw.allergens,
+    flavorCatalog,
     restaurant: raw.restaurant,
   };
 };
@@ -221,6 +260,7 @@ const getFilteredDishes = () => {
 };
 
 const buildNav = (activeCategories) => {
+  if (!dom.categoryNav) return;
   dom.categoryNav.innerHTML = "";
   activeCategories.forEach((category) => {
     const link = document.createElement("a");
@@ -288,20 +328,10 @@ const buildDishCard = (dish) => {
   content.appendChild(header);
   content.appendChild(desc);
 
-  const allergens = parseAllergens(dish.allergens);
-  if (allergens.length > 0) {
-    const allergensWrap = document.createElement("div");
-    allergensWrap.className = "card-allergens";
-    allergens.forEach((allergen) => {
-      const imagePath = normalizedAllergenImageMap[normalizeLabel(allergen)];
-      if (!imagePath) return;
-      const icon = document.createElement("img");
-      icon.src = imagePath;
-      icon.alt = allergen;
-      icon.className = "allergen-icon";
-      icon.title = allergen;
-      allergensWrap.appendChild(icon);
-    });
+  const allergensWrap = document.createElement("div");
+  allergensWrap.className = "card-allergens";
+  renderAllergenIcons(dish.allergens, allergensWrap);
+  if (allergensWrap.children.length > 0) {
     content.appendChild(allergensWrap);
   }
 
@@ -324,27 +354,83 @@ const buildDishCard = (dish) => {
 const buildSections = (activeCategories, dishesByCategory) => {
   dom.menuSections.innerHTML = "";
   activeCategories.forEach((category) => {
-    const section = document.createElement("section");
-    section.id = category.id;
+    const dishes = dishesByCategory[category.id];
 
-    const header = document.createElement("div");
-    header.className = "section-header";
-    header.innerHTML = `<h2><i class=\"fa-solid ${getCategoryIcon(
-      category.name
-    )}\" style=\"color: var(--fuego); margin-right: 10px;\"></i>${
-      category.name
-    }</h2>`;
+    // Subdivide "batidos_granizados" into two subsections
+    if (category.id === "batidos_granizados") {
+      // Split into batidos and granizados
+      const batidos = dishes.filter((dish) => !dish.id.startsWith("granizado_"));
+      const granizados = dishes.filter((dish) => dish.id.startsWith("granizado_"));
 
-    const list = document.createElement("div");
-    list.className = "menu-list";
+      // Create Batidos section
+      if (batidos.length > 0) {
+        const section = document.createElement("section");
+        section.id = `${category.id}_batidos`;
 
-    dishesByCategory[category.id].forEach((dish) => {
-      list.appendChild(buildDishCard(dish));
-    });
+        const header = document.createElement("div");
+        header.className = "section-header";
+        header.innerHTML = `<h2><i class=\"fa-solid ${getCategoryIcon(
+          "Batidos"
+        )}\" style=\"color: var(--fuego); margin-right: 10px;\"></i>Batidos</h2>`;
 
-    section.appendChild(header);
-    section.appendChild(list);
-    dom.menuSections.appendChild(section);
+        const list = document.createElement("div");
+        list.className = "menu-list";
+
+        batidos.forEach((dish) => {
+          list.appendChild(buildDishCard(dish));
+        });
+
+        section.appendChild(header);
+        section.appendChild(list);
+        dom.menuSections.appendChild(section);
+      }
+
+      // Create Granizados section
+      if (granizados.length > 0) {
+        const section = document.createElement("section");
+        section.id = `${category.id}_granizados`;
+
+        const header = document.createElement("div");
+        header.className = "section-header";
+        header.innerHTML = `<h2><i class=\"fa-solid ${getCategoryIcon(
+          "Granizados"
+        )}\" style=\"color: var(--fuego); margin-right: 10px;\"></i>Granizados</h2>`;
+
+        const list = document.createElement("div");
+        list.className = "menu-list";
+
+        granizados.forEach((dish) => {
+          list.appendChild(buildDishCard(dish));
+        });
+
+        section.appendChild(header);
+        section.appendChild(list);
+        dom.menuSections.appendChild(section);
+      }
+    } else {
+      // Default behavior for other categories
+      const section = document.createElement("section");
+      section.id = category.id;
+
+      const header = document.createElement("div");
+      header.className = "section-header";
+      header.innerHTML = `<h2><i class=\"fa-solid ${getCategoryIcon(
+        category.name
+      )}\" style=\"color: var(--fuego); margin-right: 10px;\"></i>${
+        category.name
+      }</h2>`;
+
+      const list = document.createElement("div");
+      list.className = "menu-list";
+
+      dishes.forEach((dish) => {
+        list.appendChild(buildDishCard(dish));
+      });
+
+      section.appendChild(header);
+      section.appendChild(list);
+      dom.menuSections.appendChild(section);
+    }
   });
 };
 
@@ -354,6 +440,7 @@ const renderMenu = () => {
   const activeCategories = [];
 
   data.categories.forEach((category) => {
+    if (state.selectedCategoryId && category.id !== state.selectedCategoryId) return;
     const categoryDishes = filteredDishes.filter(
       (dish) => dish.categoryId === category.id
     );
@@ -365,7 +452,9 @@ const renderMenu = () => {
 
   buildNav(activeCategories);
   buildSections(activeCategories, dishesByCategory);
-  setActiveNavOnScroll();
+  if (dom.categoryNav) {
+    setActiveNavOnScroll();
+  }
 };
 
 const renderSlider = () => {
@@ -394,7 +483,7 @@ const renderSlider = () => {
     const overlay = document.createElement("div");
     overlay.className = "slide-overlay";
     overlay.innerHTML = `
-      <span class="slide-tag"><i class="fa-solid fa-star"></i> ${slide.tag || "Salado Dulce"}</span>
+      <span class="slide-tag"><i class="fa-solid fa-star"></i> ${slide.tag || data.restaurant?.name || "Heladeria"}</span>
       <h2 class="slide-title">${slide.title}</h2>
       <p class="slide-subtitle">${slide.description}</p>
     `;
@@ -602,17 +691,87 @@ const closeDishModal = () => {
   }, 350);
 };
 
-const openOrderPopup = () => {
-  if (!dom.orderPopupOverlay) return;
-  dom.orderPopupOverlay.classList.add("open");
+const renderFlavorCatalog = () => {
+  if (!dom.flavorModalBody) return;
+  dom.flavorModalBody.innerHTML = "";
+
+  data.flavorCatalog.forEach((group) => {
+    const section = document.createElement("div");
+    section.className = "flavor-group";
+
+    const title = document.createElement("h3");
+    title.textContent = group.title;
+    section.appendChild(title);
+
+    const grid = document.createElement("div");
+    grid.className = "flavor-grid";
+
+    group.items.forEach((item) => {
+      const card = document.createElement("div");
+      card.className = "flavor-item";
+
+      const name = document.createElement("div");
+      name.className = "flavor-name";
+      name.textContent = item.name;
+      card.appendChild(name);
+
+      const allergens = document.createElement("div");
+      allergens.className = "flavor-allergens";
+      renderAllergenIcons(item.allergens, allergens);
+      if (allergens.children.length === 0) {
+        const noAllergen = document.createElement("span");
+        noAllergen.className = "detail-text";
+        noAllergen.textContent = "Sin alergenos";
+        allergens.appendChild(noAllergen);
+      }
+      card.appendChild(allergens);
+      grid.appendChild(card);
+    });
+
+    section.appendChild(grid);
+    dom.flavorModalBody.appendChild(section);
+  });
 };
 
-const closeOrderPopup = () => {
-  if (!dom.orderPopupOverlay) return;
-  dom.orderPopupOverlay.classList.remove("open");
+const openFlavorModal = () => {
+  if (!dom.flavorModalOverlay) return;
+  dom.flavorModalOverlay.classList.add("open");
+  document.body.style.overflow = "hidden";
+};
+
+const closeFlavorModal = () => {
+  if (!dom.flavorModalOverlay) return;
+  dom.flavorModalOverlay.classList.remove("open");
+  document.body.style.overflow = "unset";
+};
+
+const setMenuView = (showMenu) => {
+  if (dom.landingOptions) {
+    dom.landingOptions.classList.toggle("is-active", !showMenu);
+  }
+  if (dom.menuView) {
+    dom.menuView.classList.toggle("is-active", showMenu);
+  }
+  if (dom.backToLanding) {
+    dom.backToLanding.classList.toggle("is-hidden", !showMenu);
+  }
+  window.scrollTo({ top: 0, behavior: "instant" });
+};
+
+const selectCategory = (categoryId) => {
+  state.selectedCategoryId = categoryId;
+  renderMenu();
+  setMenuView(true);
+};
+
+const resetCategorySelection = () => {
+  state.selectedCategoryId = "";
+  renderMenu();
+  setMenuView(false);
 };
 
 const setActiveNavOnScroll = () => {
+  if (!dom.categoryNav) return;
   const links = [...dom.categoryNav.querySelectorAll("a")];
   const sections = [...document.querySelectorAll("section[id]")];
   const centerActiveLink = (activeLink) => {
@@ -665,6 +824,8 @@ const setActiveNavOnScroll = () => {
 const init = () => {
   renderSlider();
   renderMenu();
+  renderFlavorCatalog();
+  setMenuView(false);
 
   dom.celiacFilter.addEventListener("change", (event) => {
     state.celiacFilter = event.target.checked;
@@ -695,21 +856,47 @@ const init = () => {
     }
   });
 
-  if (dom.orderPopupClose) {
-    dom.orderPopupClose.addEventListener("click", closeOrderPopup);
+  if (dom.flavorButton) {
+    dom.flavorButton.addEventListener("click", openFlavorModal);
   }
-  if (dom.orderPopupButton) {
-    dom.orderPopupButton.addEventListener("click", closeOrderPopup);
+  if (dom.flavorModalClose) {
+    dom.flavorModalClose.addEventListener("click", closeFlavorModal);
   }
-  if (dom.orderPopupOverlay) {
-    dom.orderPopupOverlay.addEventListener("click", (event) => {
-      if (event.target === dom.orderPopupOverlay) {
-        closeOrderPopup();
+  if (dom.flavorModalOverlay) {
+    dom.flavorModalOverlay.addEventListener("click", (event) => {
+      if (event.target === dom.flavorModalOverlay) {
+        closeFlavorModal();
       }
     });
   }
 
-  setTimeout(openOrderPopup, 5000);
+  if (dom.landingOptions) {
+    dom.landingOptions.querySelectorAll("[data-category]").forEach((card) => {
+      card.addEventListener("click", (event) => {
+        event.preventDefault();
+        const categoryId = card.dataset.category;
+        if (categoryId) {
+          selectCategory(categoryId);
+          history.replaceState(null, "", `#${categoryId}`);
+        }
+      });
+    });
+  }
+
+  if (dom.backToLanding) {
+    dom.backToLanding.addEventListener("click", () => {
+      resetCategorySelection();
+      history.replaceState(null, "", "#");
+    });
+  }
+
+  if (window.location.hash) {
+    const categoryId = window.location.hash.replace("#", "");
+    if (categoryId) {
+      selectCategory(categoryId);
+    }
+  }
+
 };
 
 fetch("menu.json")

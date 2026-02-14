@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Salado Dulce - Crêpes, Empanadas y Helados Ecológicos</title>
-    <meta name="description" content="Salado Dulce - Crêpes artesanales, empanadas argentinas y helados ecológicos en Barcelona." />
+    <title>Heladeria Playa San Juan - Helados, batidos y desayunos</title>
+    <meta name="description" content="Heladeria Playa San Juan - Copas de helado, batidos, granizados y desayunos frente al mar." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,37 +18,73 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="pt-15">
+    <header class="">
+      <button class="back-button" id="backToLanding" type="button" aria-label="Volver a categorias">
+        <i class="fa-solid fa-chevron-left mx-auto"></i>
+      </button>
       <div class="brand">
         <div class="logo-badge">
           <img
-            src="images/brand/logo_blanco.png"
+            src="images/brand/logo.png"
             width="100"
             height="100"
-            alt="Salado Dulce Logo"
-            class="my-2 align-middle mx-auto"
+            alt="Heladeria Playa San Juan Logo"
+            class="align-middle mx-auto"
             loading="eager"
           />
         </div>
       </div>
-      <nav class="nav-scroller px-15 pt-10 pb-15 space-x-3" id="categoryNav"></nav>
     </header>
 
-    <div class="hero-slider" id="heroSlider">
-      <div class="slider-container" id="sliderContainer"></div>
-      <div class="slider-arrows" id="sliderArrows">
-        <button class="slider-arrow" id="sliderPrev" aria-label="Previous slide">
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button class="slider-arrow" id="sliderNext" aria-label="Next slide">
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
-      </div>
-      <div class="slider-dots" id="sliderDots"></div>
-    </div>
-
     <main>
-      <div class="celiac-filter-container">
+      <section class="page page-landing is-active" id="landingOptions" aria-label="Secciones principales">
+        <div class="landing-header">
+          <h2>¿Qué estás buscando?</h2>
+          <p>Helados cremosos, batidos refrescantes o desayunos para empezar el dia.</p>
+        </div>
+        <div class="landing-grid">
+          <a class="landing-card" href="#copas_helado" data-category="copas_helado">
+            <img src="../../data/images/dishes/helados/helado-ecologico.jpg" alt="Helados" loading="lazy" />
+            <div class="landing-overlay">
+              <span class="landing-chip">Helados</span>
+              <h3>Copas y tarrinas</h3>
+              <p>Descubre los sabores estrella del dia.</p>
+            </div>
+          </a>
+          <a class="landing-card" href="#batidos_granizados" data-category="batidos_granizados">
+            <img src="../../data/images/dishes/bebidas/horchata.jpg" alt="Batidos y granizados" loading="lazy" />
+            <div class="landing-overlay">
+              <span class="landing-chip">Batidos</span>
+              <h3>Batidos y granizados</h3>
+              <p>Batidos con helado y granizados clasicos.</p>
+            </div>
+          </a>
+          <a class="landing-card" href="#meriendas_desayunos" data-category="meriendas_desayunos">
+            <img src="../../data/images/dishes/bocadillos/bocadillo-jamon.jpg" alt="Meriendas y desayunos" loading="lazy" />
+            <div class="landing-overlay">
+              <span class="landing-chip">Bocadillos y tostadas</span>
+              <h3>Meriendas y desayunos</h3>
+              <p>Opciones sencillas para cualquier hora.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <div class="page page-menu" id="menuView">
+        <div class="hero-slider" id="heroSlider">
+          <div class="slider-container" id="sliderContainer"></div>
+          <div class="slider-arrows" id="sliderArrows">
+            <button class="slider-arrow" id="sliderPrev" aria-label="Previous slide">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="slider-arrow" id="sliderNext" aria-label="Next slide">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="slider-dots" id="sliderDots"></div>
+        </div>
+
+        <div class="celiac-filter-container">
         <label class="celiac-checkbox">
           <input type="checkbox" id="celiacFilter" />
           <span class="checkmark border-cream"></span>
@@ -59,7 +95,8 @@
         </label>
       </div>
 
-      <div id="menuSections"></div>
+        <div id="menuSections"></div>
+      </div>
 
       <footer class="price-disclaimer">
         <p>Precios en € con IVA incluido</p>
@@ -76,19 +113,20 @@
       </div>
     </div>
 
-    <div class="order-popup-overlay" id="orderPopupOverlay">
-      <div class="order-popup" id="orderPopup">
-        <button class="order-popup-close" id="orderPopupClose" aria-label="Cerrar">
+    <button class="flavor-button" id="flavorButton" aria-label="Ver carta de sabores">
+      <i class="fa-solid fa-book-open"></i>
+      Carta de sabores
+    </button>
+
+    <div class="flavor-modal-overlay" id="flavorModalOverlay">
+      <div class="flavor-modal" id="flavorModal">
+        <button class="flavor-close" id="flavorModalClose" aria-label="Cerrar carta de sabores">
           <i class="fa-solid fa-xmark"></i>
         </button>
-        <div class="order-popup-icon">
-          <i class="fa-solid fa-motorcycle"></i>
-        </div>
-        <h3 class="order-popup-title">Pide a domicilio</h3>
-        <p class="order-popup-text">
-          Recuerda que puedes pedir la comida para llevar o a domicilio.
-        </p>
-        <button class="order-popup-button" id="orderPopupButton">Entendido</button>
+        <header class="flavor-modal-header">
+          <h2>Carta de sabores</h2>
+        </header>
+        <div class="flavor-modal-body" id="flavorModalBody"></div>
       </div>
     </div>
 
