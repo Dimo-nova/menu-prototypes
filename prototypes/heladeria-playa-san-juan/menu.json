@@ -1,0 +1,249 @@
+{
+  "restaurant": {
+    "name": "Salado Dulce",
+    "tagline": "Crêpes, empanadas argentinas, helados ecológicos y mucho más",
+    "location": "Barcelona",
+    "hours": "10:00–22:00",
+    "phone": "+34 93 000 000",
+    "currency": "EUR"
+  },
+  "allergens": [
+    {
+      "id": "gluten",
+      "name": "Gluten",
+      "icon": "images/alergenos/gluten.svg"
+    },
+    {
+      "id": "lacteos",
+      "name": "Lácteos",
+      "icon": "images/alergenos/lacteos.svg"
+    },
+    {
+      "id": "huevos",
+      "name": "Huevos",
+      "icon": "images/alergenos/huevos.svg"
+    },
+    {
+      "id": "frutos_cascara",
+      "name": "Frutos de cáscara",
+      "icon": "images/alergenos/frutos_cascara.svg"
+    },
+    {
+      "id": "cacahuetes",
+      "name": "Cacahuetes",
+      "icon": "images/alergenos/cacahuetes.svg"
+    },
+    {
+      "id": "granos_sesamo",
+      "name": "Granos de sésamo",
+      "icon": "images/alergenos/granos_sesamo.svg"
+    }
+  ],
+  "categories": [
+    {
+      "id": "crepes_salados",
+      "name": "Crêpes Salados",
+      "subtitle": "Crêpes salados artesanales",
+      "dishes": [
+        {
+          "id": "crepe_jamon_emmental",
+          "name": "Crêpe de Jamón Dulce y Queso Emmental",
+          "description": "Crêpe de jamón dulce y queso Emmental. Si lo deseas, puedes añadir un huevo ecológico fresco de gallinas libres de Vilassar de Dalt (suplemento 0,50 €).",
+          "price": "5,00 €",
+          "image": "data/images/dishes/crepes/crepe-pernil-dolc-emmental.jpg",
+          "allergens": ["gluten", "lacteos", "huevos"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "crepe_agosto",
+          "name": "Crêpe de Agosto",
+          "description": "Bacon, brie, salsa de tomate, tomates cherry naturales y orégano. Puedes complementar este crêpe con hojas verdes de rúcula (0,50 €).",
+          "price": "6,00 €",
+          "image": "data/images/dishes/crepes/crepe-agosto-bacon-brie-tomate-oregano.jpg",
+          "allergens": ["gluten", "lacteos", "huevos"],
+          "isSignature": true,
+          "tags": ["popular"]
+        },
+        {
+          "id": "crepe_pavo_berenjena",
+          "name": "Crêpe de Pavo a la Plancha",
+          "description": "Crêpe de pavo a la plancha, carpaccio de berenjena y vinagreta de oliva negra. Se puede complementar con hojas verdes de rúcula y tomatitos cherry (0,50 €).",
+          "price": "7,00 €",
+          "image": "data/images/dishes/crepes/crepe-de-pavo.jpg",
+          "allergens": ["gluten", "lacteos", "huevos"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "crepe_cabra_nous",
+          "name": "Crêpe de Queso de Cabra, Nueces y Cebolla Caramelizada",
+          "description": "Crêpe de queso de cabra, nueces y cebolla caramelizada. Puedes complementar con hojas verdes (0,50 €).",
+          "price": "7,00 €",
+          "image": "data/images/dishes/crepes/crepe-formatge-cabra-nous-ceba-caramellitzada.jpg",
+          "allergens": ["gluten", "lacteos", "huevos"],
+          "isSignature": false,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "empanadas",
+      "name": "Empanadas Argentinas",
+      "subtitle": "Empanadas artesanales argentinas",
+      "dishes": [
+        {
+          "id": "empanada_entrana",
+          "name": "Empanada Argentina Real de Entraña",
+          "description": "Elaborada artesanalmente con carne de entraña cortada a cuchillo, desengrasada. Contiene cebolla, pimiento rojo, olivas negras y huevo. ¡Increíble, no habrás probado una empanada igual! Opción para llevar.",
+          "price": "3,50 €",
+          "image": "data/images/dishes/empanadas/empanada-argentina-real-entrana.jpg",
+          "allergens": ["gluten", "huevos"],
+          "isSignature": true,
+          "tags": ["estrella"]
+        },
+        {
+          "id": "empanada_espinaca",
+          "name": "Empanada de Espinacas, Piñones y Pasas",
+          "description": "Empanada de espinacas, nuez moscada, piñones y toque de pasas.",
+          "price": "3,00 €",
+          "image": "data/images/dishes/empanadas/empanada-espinacas-pasas.jpg",
+          "allergens": ["gluten", "huevos"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "empanada_humita",
+          "name": "Empanada Real de Humita",
+          "description": "Maíz dulce delicado, cebolla caramelizada y un toque de queso tierno. ¡Pruébala!",
+          "price": "3,00 €",
+          "image": "data/images/dishes/empanadas/empanada-humita.jpg",
+          "allergens": ["gluten"],
+          "isSignature": false,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "crepes_dulces",
+      "name": "Crêpes Dulces",
+      "subtitle": "Crêpes dulces para endulzar el momento",
+      "dishes": [
+        {
+          "id": "crepe_nutella",
+          "name": "Crêpe de Nutella",
+          "description": "Crêpe de crema de avellanas.",
+          "price": "5,00 €",
+          "image": "data/images/dishes/crepes/crepe-nutella.jpg",
+          "allergens": ["gluten", "lacteos", "huevos", "frutos_cascara"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "crepe_melocoton",
+          "name": "Crêpe de Melocotón en Almíbar y Leche Condensada",
+          "description": "Crêpe de melocotones en almíbar con leche condensada.",
+          "price": "5,00 €",
+          "image": "data/images/dishes/crepes/crepe-pressec-almibar-llet-condensada.jpg",
+          "allergens": ["gluten", "lacteos", "huevos"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "crepe_banana_maduixes",
+          "name": "Crêpe de Banana o Fresas, Almendras Tostadas",
+          "description": "Crêpe de fresas o banana, almendras crunchy, leche condensada o Nutella. ¡Tú decides! Suplemento: bola de helado ecológico 1,50 €.",
+          "price": "6,00 €",
+          "image": "data/images/dishes/crepes/crepe-banana-maduixes-ametlles-torrades.jpg",
+          "allergens": ["gluten", "lacteos", "huevos", "granos_sesamo", "cacahuetes"],
+          "isSignature": true,
+          "tags": ["popular"]
+        },
+        {
+          "id": "crepe_chocolat_negre",
+          "name": "Crêpe de Chocolate Negro con Bola de Helado Ecológico",
+          "description": "Crêpe de chocolate negro con una bola de helado ecológico.",
+          "price": "6,50 €",
+          "image": "data/images/dishes/crepes/crepe-chocolate-negro-bola-helado.jpg",
+          "allergens": ["gluten", "lacteos", "cacahuetes", "huevos"],
+          "isSignature": true,
+          "tags": ["destacado"]
+        }
+      ]
+    },
+    {
+      "id": "gelats",
+      "name": "Helados Ecológicos",
+      "subtitle": "Helados ecológicos artesanales de Barcelona",
+      "dishes": [
+        {
+          "id": "gelat_ecologic",
+          "name": "Helado Ecológico",
+          "description": "Disfruta del mejor helado ecológico, hecho en Barcelona. Sabores a escoger. 1 bola: 3,00 € · 2 bolas: 4,50 €.",
+          "price": "3,00 €",
+          "image": "data/images/dishes/helados/helado-ecologico.jpg",
+          "allergens": ["lacteos"],
+          "isSignature": true,
+          "tags": ["estrella"]
+        },
+        {
+          "id": "brownie_gelat",
+          "name": "Brownie con Helado",
+          "description": "Brownie artesanal con el 80% de cacao negro con helado ecológico del sabor que quieras.",
+          "price": "5,00 €",
+          "image": "data/images/dishes/helados/brownie-amb-gelat.jpg",
+          "allergens": ["lacteos", "gluten"],
+          "isSignature": true,
+          "tags": ["popular"]
+        },
+        {
+          "id": "apple_crumble",
+          "name": "Apple Crumble (Sin Gluten)",
+          "description": "Mix de manzana y pera al horno con canela, crumble de avena tostada, nueces y azúcar moreno, servido tibio con helado ecológico. Postre sin gluten y muy bajo en azúcar.",
+          "price": "5,00 €",
+          "image": "data/images/dishes/helados/apple-crumble.jpg",
+          "allergens": ["frutos_cascara", "cacahuetes"],
+          "isSignature": false,
+          "tags": ["sin gluten"]
+        }
+      ]
+    },
+    {
+      "id": "bebidas",
+      "name": "Bebidas",
+      "subtitle": "Refréscate con nuestras bebidas",
+      "dishes": [
+        {
+          "id": "orxata",
+          "name": "Orxata Fresca Km 0",
+          "description": "La mejor horchata artesana del Maresme, sin conservantes ni aditivos. Nos la traen cada día. También disponible a litros (8 € / con bidón 7 €). Avísanos un día antes para litros.",
+          "price": "2,90 €",
+          "image": "data/images/dishes/bebidas/Orxata-km0.jpg",
+          "allergens": [],
+          "isSignature": true,
+          "tags": ["km0"]
+        },
+        {
+          "id": "cerveza_estrella",
+          "name": "Cerveza Estrella",
+          "description": "Cerveza Estrella para acompañar tu comida.",
+          "price": null,
+          "image": "data/images/dishes/bebidas/estrella galicia.jpg",
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "chocolate_caliente",
+          "name": "Chocolate Caliente a la Taza",
+          "description": "El mejor chocolate con receta de antaño y cacao ecológico.",
+          "price": "2,50 €",
+          "image": "data/images/dishes/bebidas/chocolate caliente.jpg",
+          "allergens": ["lacteos"],
+          "isSignature": false,
+          "tags": []
+        }
+      ]
+    }
+  ]
+}
