@@ -394,7 +394,7 @@ const renderSlider = () => {
     const overlay = document.createElement("div");
     overlay.className = "slide-overlay";
     overlay.innerHTML = `
-      <span class="slide-tag"><i class="fa-solid fa-star"></i> ${slide.tag || "Salado Dulce"}</span>
+      <span class="slide-tag"><i class="fa-solid fa-star"></i> ${slide.tag || "Destacado"}</span>
       <h2 class="slide-title">${slide.title}</h2>
       <p class="slide-subtitle">${slide.description}</p>
     `;
