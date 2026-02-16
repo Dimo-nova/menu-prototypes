@@ -1,0 +1,233 @@
+
+{
+  "restaurant": {
+    "name": "Pakito Burguer",
+    "tagline": "Comida rapida de barrio: hamburguesas, pizzas y raciones",
+    "location": "Barrio",
+    "hours": "12:30–00:30",
+    "phone": "+34 93 123 456",
+    "currency": "EUR"
+  },
+  "allergens": [
+    {
+      "id": "gluten",
+      "name": "Gluten",
+      "icon": "images/alergenos/gluten.svg"
+    },
+    {
+      "id": "lacteos",
+      "name": "Lacteos",
+      "icon": "images/alergenos/lacteos.svg"
+    },
+    {
+      "id": "huevos",
+      "name": "Huevos",
+      "icon": "images/alergenos/huevos.svg"
+    },
+    {
+      "id": "frutos_cascara",
+      "name": "Frutos de cascara",
+      "icon": "images/alergenos/frutos_cascara.svg"
+    },
+    {
+      "id": "cacahuetes",
+      "name": "Cacahuetes",
+      "icon": "images/alergenos/cacahuetes.svg"
+    },
+    {
+      "id": "granos_sesamo",
+      "name": "Granos de sesamo",
+      "icon": "images/alergenos/granos_sesamo.svg"
+    }
+  ],
+  "categories": [
+    {
+      "id": "raciones",
+      "name": "Raciones",
+      "subtitle": "Para compartir y picar",
+      "dishes": [
+        {
+          "id": "croquetas_caseras",
+          "name": "Croquetas caseras",
+          "description": "Racion de croquetas cremosas con rebozado crujiente.",
+          "price": "6,50 €",
+          "image": "data/images/dishes/entrantes/croquetas.jpg",
+          "allergens": ["gluten", "lacteos", "huevos"],
+          "isSignature": true,
+          "tags": []
+        },
+        {
+          "id": "padron",
+          "name": "Pimientos de padron",
+          "description": "Salteados con aceite de oliva y escamas de sal.",
+          "price": "5,50 €",
+          "image": "data/images/dishes/entrantes/padron.jpg",
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "tortilla",
+          "name": "Tortilla tradicional",
+          "description": "Jugosa y recien hecha, con cebolla.",
+          "price": "5,90 €",
+          "image": "data/images/dishes/entrantes/tortilla.webp",
+          "allergens": ["huevos"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "alitas_crujientes",
+          "name": "Alitas crujientes",
+          "description": "Alitas de pollo con toque especiado y salsa de la casa.",
+          "price": "7,50 €",
+          "image": "data/images/dishes/carne/pollo.jpg",
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "tarta_queso",
+          "name": "Tarta de queso casera",
+          "description": "Cremosa y horneada, con base de galleta.",
+          "price": "4,50 €",
+          "image": "data/images/dishes/postres/tarta-de-queso.jpg",
+          "allergens": ["gluten", "lacteos", "huevos"],
+          "isSignature": false,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "hamburguesas",
+      "name": "Hamburguesas",
+      "subtitle": "Carne a la plancha y pan tostado",
+      "dishes": [
+        {
+          "id": "hero_burger",
+          "name": "Pakito Burguer",
+          "description": "Ternera, queso cheddar, lechuga, tomate y salsa Pakito.",
+          "price": "9,90 €",
+          "image": "data/images/dishes/hamburguesas/hero-burguer.jpg",
+          "allergens": ["gluten", "lacteos", "huevos"],
+          "isSignature": true,
+          "tags": ["estrella"]
+        },
+        {
+          "id": "new_york",
+          "name": "New York",
+          "description": "Doble queso, bacon, pepinillos y cebolla crunchy.",
+          "price": "10,50 €",
+          "image": "data/images/dishes/hamburguesas/new-york.jpg",
+          "allergens": ["gluten", "lacteos"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "tijuana",
+          "name": "Tijuana",
+          "description": "Guacamole, jalapenos, cheddar y toque picante.",
+          "price": "10,20 €",
+          "image": "data/images/dishes/hamburguesas/tijuana.jpg",
+          "allergens": ["gluten", "lacteos"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "campina_francesa",
+          "name": "Campina Francesa",
+          "description": "Queso brie, cebolla caramelizada y salsa mostaza.",
+          "price": "10,40 €",
+          "image": "data/images/dishes/hamburguesas/campina-francesa.jpg",
+          "allergens": ["gluten", "lacteos"],
+          "isSignature": false,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "pizzas",
+      "name": "Pizzas",
+      "subtitle": "Horno rapido y masa fina",
+      "dishes": [
+        {
+          "id": "pizza_margarita",
+          "name": "Pizza Margarita",
+          "description": "Tomate, mozzarella y oregano.",
+          "price": "8,90 €",
+          "image": "/images/dishes/pizzas/margarita.jpg",
+          "allergens": ["gluten", "lacteos"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "pizza_barbacoa",
+          "name": "Pizza Barbacoa",
+          "description": "Bacon, pollo, salsa barbacoa y queso.",
+          "price": "10,50 €",
+          "image": "/images/dishes/pizzas/barbacoa.jpg",
+          "allergens": ["gluten", "lacteos"],
+          "isSignature": true,
+          "tags": []
+        },
+        {
+          "id": "pizza_cuatro_quesos",
+          "name": "Pizza Cuatro Quesos",
+          "description": "Mezcla de quesos con toque gratinado.",
+          "price": "10,20 €",
+          "image": "/images/dishes/pizzas/4-quesos.jpg",
+          "allergens": ["gluten", "lacteos"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "pizza_pepperoni",
+          "name": "Pizza Pepperoni",
+          "description": "Pepperoni, tomate y mozzarella.",
+          "price": "10,40 €",
+          "image": "/images/dishes/pizzas/pepperoni.jpg",
+          "allergens": ["gluten", "lacteos"],
+          "isSignature": false,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "patatas_fritas",
+      "name": "Patatas Fritas",
+      "subtitle": "Crujientes y recien hechas",
+      "dishes": [
+        {
+          "id": "patatas_clasicas",
+          "name": "Patatas clasicas",
+          "description": "Con sal fina y punto crujiente.",
+          "price": "3,50 €",
+          "image": "/images/dishes/patatas/patatas-fritas.jpg",
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "patatas_bravas",
+          "name": "Patatas bravas",
+          "description": "Salsa brava suave y alioli.",
+          "price": "4,20 €",
+          "image": "/images/dishes/patatas/patatas bravas.jpg",
+          "allergens": ["huevos"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "patatas_cheddar_bacon",
+          "name": "Patatas cheddar y bacon",
+          "description": "Queso cheddar fundido y bacon crujiente.",
+          "price": "4,80 €",
+          "image": "/images/dishes/patatas/patatas-cheddar-bacon.jpg",
+          "allergens": ["lacteos"],
+          "isSignature": true,
+          "tags": []
+        }
+      ]
+    }
+  ]
+}
