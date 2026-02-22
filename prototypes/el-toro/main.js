@@ -714,7 +714,7 @@ const initReminderPopup = () => {
   const now = new Date();
   const timeInMinutes = now.getHours() * 60 + now.getMinutes();
   
-  if (timeInMinutes >= 1260) {
+  if (timeInMinutes >= 0) {
     dom.reminderOverlay.classList.add("open");
   }
 };
