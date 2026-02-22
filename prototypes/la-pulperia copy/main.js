@@ -18,7 +18,7 @@ const categoryIconMap = {
   "para picar": "fa-utensils",
   "para compartir": "fa-people-group",
   "de la huerta y el corral": "fa-seedling",
-  "del mar": "fa-fish",
+  "nuestras carnes": "fa-drumstick-bite",
   "de cuchara": "fa-bowl-hot",
   "de carne": "fa-drumstick-bite",
   "de dulce (postres)": "fa-ice-cream",
