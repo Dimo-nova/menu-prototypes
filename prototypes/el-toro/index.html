@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Toro Majadahonda - Carne a la Brasa</title>
+    <meta name="description" content="El Toro Majadahonda - Especialistas en carne a la brasa de la máxima calidad." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="pt-15">
+      <div class="brand">
+        <img src="/prototypes/el-toro/images/brand/logo.svg" alt="El Toro Majadahonda - Carne a la Brasa" width="150" height="50" class="align-middle mx-auto" loading="eager" />
+      </div>
+      <nav class="nav-scroller px-15 pt-10 pb-15 space-x-3" id="categoryNav"></nav>
+    </header>
+
+    <div class="hero-slider" id="heroSlider">
+      <div class="slider-container" id="sliderContainer"></div>
+      <div class="slider-arrows" id="sliderArrows">
+        <button class="slider-arrow" id="sliderPrev" aria-label="Previous slide">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="slider-arrow" id="sliderNext" aria-label="Next slide">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="slider-dots" id="sliderDots"></div>
+    </div>
+
+    <main>
+      <div class="celiac-filter-container">
+        <label class="celiac-checkbox">
+          <input type="checkbox" id="celiacFilter" />
+          <span class="checkmark border-cream"></span>
+          <span class="label-text">
+            Soy celíaco
+            <i class="fa-solid fa-wheat-awn-circle-exclamation text-cream"></i>
+          </span>
+        </label>
+      </div>
+
+      <div class="daily-menu-callout">
+        <button class="daily-menu-trigger" id="dailyMenuButton">
+          Ver menu del dia
+        </button>
+      </div>
+
+      <div id="menuSections"></div>
+
+      <footer class="price-disclaimer">
+        <p>Precios en € con IVA incluido</p>
+      </footer>
+    </main>
+
+    <div class="modal-overlay" id="dishModalOverlay">
+      <div class="modal-content" id="dishModalContent">
+        <button class="close-btn" id="dishModalClose">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="modal-header-img" id="dishModalMedia"></div>
+        <div class="modal-body" id="dishModalBody"></div>
+      </div>
+    </div>
+
+    <div class="daily-menu-overlay" id="dailyMenuOverlay">
+      <div class="daily-menu-content" id="dailyMenuContent">
+        <button class="close-btn" id="dailyMenuClose">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="daily-menu-body" id="dailyMenuBody"></div>
+      </div>
+    </div>
+
+    <div class="reminder-overlay" id="reminderOverlay">
+      <div class="reminder-popup" id="reminderPopup">
+        <button class="reminder-close" id="reminderClose">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="reminder-icon">
+          <i class="fa-solid fa-clock"></i>
+        </div>
+        <h3 class="reminder-title">¡Recordatorio amable!</h3>
+        <p class="reminder-text">
+          Le recordamos amablemente que este turno termina a las <strong>21:50</strong>.
+        </p>
+        <p class="reminder-subtext">¡Muchas gracias por su comprensión y disfrute de su comida!</p>
+        <button class="reminder-button" id="reminderButton">Entendido</button>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -10,9 +10,21 @@ let allergenImageMap = {};
 let normalizedAllergenImageMap = {};
 
 const categoryIconMap = {
+  "crepes salats": "fa-bread-slice",
+  "empanadas argentines": "fa-hand-holding-heart",
+  "crepes dolcos": "fa-cookie-bite",
+  "gelats ecologics": "fa-ice-cream",
+  "bebidas": "fa-glass-water",
+  "para picar": "fa-utensils",
   "para compartir": "fa-people-group",
-  "de la huerta": "fa-seedling",
+  "de la huerta y el corral": "fa-seedling",
   "del mar": "fa-fish",
+  "de cuchara": "fa-bowl-hot",
+  "de carne": "fa-drumstick-bite",
+  "de dulce (postres)": "fa-ice-cream",
+  "de dulce": "fa-ice-cream",
+  "postres": "fa-ice-cream",
+  "de la huerta": "fa-seedling",
   "a la brasa": "fa-fire",
   postres: "fa-ice-cream",
   tostas: "fa-bread-slice",
@@ -23,7 +35,6 @@ const categoryIconMap = {
   caracoles: "fa-shrimp",
   "verduras a la brasa": "fa-carrot",
   carnes: "fa-drumstick-bite",
-  postres: "fa-ice-cream",
   "vinos y cavas": "fa-wine-bottle",
   cervezas: "fa-beer-mug-empty",
   "otras bebidas": "fa-mug-hot",
@@ -65,14 +76,15 @@ const categoryIconMap = {
   cocteles: "fa-martini-glass-citrus",
   licores: "fa-whiskey-glass",
   destilados: "fa-whiskey-glass",
+  batidos: "fa-blender",
 };
 
 const state = {
   currentSlide: 0,
   sliderTimer: null,
-  isVideoPlaying: null,
   celiacFilter: false,
   scrollHandler: null,
+  activeCategoryId: "",
 };
 
 const dom = {
@@ -89,10 +101,19 @@ const dom = {
   dishModalMedia: document.getElementById("dishModalMedia"),
   dishModalBody: document.getElementById("dishModalBody"),
   dishModalClose: document.getElementById("dishModalClose"),
+  dailyMenuButton: document.getElementById("dailyMenuButton"),
+  dailyMenuOverlay: document.getElementById("dailyMenuOverlay"),
+  dailyMenuContent: document.getElementById("dailyMenuContent"),
+  dailyMenuBody: document.getElementById("dailyMenuBody"),
+  dailyMenuClose: document.getElementById("dailyMenuClose"),
   reminderOverlay: document.getElementById("reminderOverlay"),
   reminderClose: document.getElementById("reminderClose"),
   reminderButton: document.getElementById("reminderButton"),
-  reminderTime: document.getElementById("reminderTime"),
+};
+
+const dailyMenuConfig = {
+  primeros: ["ensalada_tomate", "alcachofas_jamon", "empanada_atun"],
+  segundos: ["brocheta_chipirones", "bacalao_hojaldre", "dorada_sal"],
 };
 
 const normalizeLabel = (value) =>
@@ -128,25 +149,15 @@ const formatPrice = (price) => {
 
 const buildAllergenMaps = (allergens) => {
   allergenImageMap = Object.fromEntries(
-    allergens.map((allergen) => [allergen.name, `../../data/${allergen.icon}`])
+    allergens
+      .filter((allergen) => Boolean(allergen.icon))
+      .map((allergen) => [allergen.name, `../../data/${allergen.icon}`])
   );
   normalizedAllergenImageMap = Object.fromEntries(
     Object.entries(allergenImageMap).map(([key, value]) => [normalizeLabel(key), value])
   );
 };
 
-const buildSliderData = (rawCategories) => {
-  const candidates = rawCategories
-    .flatMap((category) => category.dishes)
-    .filter((dish) => dish.image && (dish.isSignature || dish.tags?.length));
-
-  return candidates.slice(0, 4).map((dish, index) => ({
-    id: `slide-${index + 1}`,
-    title: dish.name,
-    description: dish.description,
-    imageUrl: `../../data/images/${dish.image}`,
-  }));
-};
 
 const mapMenuData = (raw) => {
   const allergenNameById = new Map(
@@ -163,6 +174,11 @@ const mapMenuData = (raw) => {
       const allergenNames = (dish.allergens || [])
         .map((id) => allergenNameById.get(id))
         .filter(Boolean);
+      const allergensText = dish.allergensText
+        ? dish.allergensText
+        : allergenNames.length > 0
+          ? allergenNames.join(", ")
+          : "Consultar";
       const longDesc = [dish.description, dish.chefNote]
         .filter(Boolean)
         .join(" ");
@@ -171,19 +187,24 @@ const mapMenuData = (raw) => {
         id: dish.id,
         categoryId: category.id,
         title: dish.name,
-        price: dish.price,
+        price: dish.price || "",
         badge: dish.isSignature ? "Destacado" : "",
         shortDesc: dish.description || "",
         longDesc: longDesc || dish.description,
-        allergens: allergenNames.join(", "),
+        allergens: allergensText,
         pairing: dish.pairing || "",
-        img: dish.image ? `../../data/${dish.image}` : "",
+        img:
+          dish.image && (dish.image.startsWith("http") || dish.image.startsWith("images/"))
+            ? dish.image
+            : dish.image
+              ? `../../data/${dish.image}`
+              : "",
       };
     })
   );
 
   return {
-    sliders: buildSliderData(raw.categories),
+    sliders: Array.isArray(raw.sliders) ? raw.sliders : [],
     categories,
     dishes,
     allergens: raw.allergens,
@@ -194,7 +215,11 @@ const mapMenuData = (raw) => {
 const getFilteredDishes = () => {
   if (!state.celiacFilter) return data.dishes;
   return data.dishes.filter(
-    (dish) => !dish.allergens?.toLowerCase().includes("gluten")
+    (dish) => {
+      const allergensText = dish.allergens?.toLowerCase() || "";
+      if (allergensText.includes("sin gluten")) return true;
+      return !allergensText.includes("gluten");
+    }
   );
 };
 
@@ -254,7 +279,7 @@ const buildDishCard = (dish) => {
 
   const price = document.createElement("span");
   price.className = "card-price";
-  price.textContent = formatPrice(dish.price);
+  price.textContent = dish.price || "";
 
   header.appendChild(title);
   header.appendChild(price);
@@ -364,37 +389,15 @@ const renderSlider = () => {
     slideEl.className = "slide";
     slideEl.style.width = `${100 / totalSlides}%`;
 
-    if (slide.videoUrl) {
-      const video = document.createElement("video");
-      video.src = slide.videoUrl;
-      video.poster = slide.imageUrl;
-      video.className = "slide-video";
-      video.playsInline = true;
-      slideEl.appendChild(video);
-
-      const playBtn = document.createElement("button");
-      playBtn.className = "video-play-btn";
-      playBtn.setAttribute("aria-label", "Reproducir video");
-      playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
-      playBtn.addEventListener("click", () => {
-        video.play();
-      });
-      slideEl.appendChild(playBtn);
-    } else {
-      const img = document.createElement("img");
-      img.src = slide.imageUrl;
-      img.alt = slide.title;
-      slideEl.appendChild(img);
-    }
+    const img = document.createElement("img");
+    img.src = slide.imageUrl;
+    img.alt = slide.title;
+    slideEl.appendChild(img);
 
     const overlay = document.createElement("div");
-    overlay.className = `slide-overlay ${slide.videoUrl ? "slide-overlay-video" : ""}`;
+    overlay.className = "slide-overlay";
     overlay.innerHTML = `
-      ${
-        slide.videoUrl
-          ? ""
-          : '<span class="slide-tag"><i class="fa-solid fa-star"></i> Destacado</span>'
-      }
+      <span class="slide-tag"><i class="fa-solid fa-star"></i> ${slide.tag || "Destacado"}</span>
       <h2 class="slide-title">${slide.title}</h2>
       <p class="slide-subtitle">${slide.description}</p>
     `;
@@ -571,12 +574,11 @@ const openDishModal = (dish) => {
     dom.dishModalContent.classList.add("modal-content-no-image");
   }
 
-  const allergensText = dish.allergens || "Sin alergenos";
-  const pairingText = dish.pairing || "Sin sugerencia";
+  const allergensText = dish.allergens || "Sin alérgenos";
 
   dom.dishModalBody.innerHTML = `
     <h2 class="modal-title">${dish.title}</h2>
-    <span class="modal-price">${formatPrice(dish.price)} €</span>
+    <span class="modal-price">${dish.price}</span>
     <div class="separator"></div>
     <div class="detail-row">
       <span class="detail-label"><i class="fa-solid fa-utensils"></i> Descripción</span>
@@ -585,10 +587,6 @@ const openDishModal = (dish) => {
     <div class="detail-row">
       <span class="detail-label"><i class="fa-solid fa-triangle-exclamation"></i> Alérgenos</span>
       <p class="detail-text" style="font-style: italic;">${allergensText}</p>
-    </div>
-    <div class="detail-row">
-      <span class="detail-label"><i class="fa-solid fa-wine-glass"></i> Maridaje Sugerido</span>
-      <p class="detail-text">${pairingText}</p>
     </div>
   `;
 
@@ -607,9 +605,78 @@ const closeDishModal = () => {
   }, 350);
 };
 
+const renderDailyMenu = () => {
+  if (!dom.dailyMenuBody) return;
+  const findDish = (id) => data.dishes.find((dish) => dish.id === id);
+  const buildItems = (ids) =>
+    ids
+      .map((id) => {
+        const dish = findDish(id);
+        if (!dish) return "";
+        const desc = dish.shortDesc
+          ? `<span class="daily-menu-desc">${dish.shortDesc}</span>`
+          : "";
+        return `
+          <li class="daily-menu-item">
+            <span class="daily-menu-name">${dish.title}</span>
+            ${desc}
+          </li>
+        `;
+      })
+      .join("");
+
+  dom.dailyMenuBody.innerHTML = `
+    <h3 class="daily-menu-title">Menu del dia</h3>
+    <p class="daily-menu-subtitle">Primeros y segundos a elegir.</p>
+    <div class="daily-menu-section">
+      <h4>Primeros</h4>
+      <ul class="daily-menu-list">
+        ${buildItems(dailyMenuConfig.primeros)}
+      </ul>
+    </div>
+    <div class="daily-menu-section">
+      <h4>Segundos</h4>
+      <ul class="daily-menu-list">
+        ${buildItems(dailyMenuConfig.segundos)}
+      </ul>
+    </div>
+    <p class="daily-menu-note">Postre o cafe incluido.</p>
+  `;
+};
+
+const openDailyMenu = () => {
+  if (!dom.dailyMenuOverlay || !dom.dailyMenuContent) return;
+  dom.dailyMenuOverlay.classList.add("open");
+  dom.dailyMenuContent.classList.add("open");
+  document.body.style.overflow = "hidden";
+};
+
+const closeDailyMenu = () => {
+  if (!dom.dailyMenuOverlay || !dom.dailyMenuContent) return;
+  dom.dailyMenuOverlay.classList.remove("open");
+  dom.dailyMenuContent.classList.remove("open");
+  setTimeout(() => {
+    document.body.style.overflow = "unset";
+  }, 350);
+};
+
 const setActiveNavOnScroll = () => {
   const links = [...dom.categoryNav.querySelectorAll("a")];
   const sections = [...document.querySelectorAll("section[id]")];
+  const centerActiveLink = (activeLink) => {
+    if (!activeLink || !dom.categoryNav) return;
+    const navRect = dom.categoryNav.getBoundingClientRect();
+    const linkRect = activeLink.getBoundingClientRect();
+    const currentScroll = dom.categoryNav.scrollLeft;
+    const offset = linkRect.left - navRect.left;
+    const targetScroll =
+      currentScroll + offset - (navRect.width / 2 - linkRect.width / 2);
+
+    dom.categoryNav.scrollTo({
+      left: Math.max(0, targetScroll),
+      behavior: "smooth",
+    });
+  };
 
   const handleScroll = () => {
     let current = "";
@@ -620,11 +687,19 @@ const setActiveNavOnScroll = () => {
       }
     });
 
+    if (!current || current === state.activeCategoryId) return;
+    state.activeCategoryId = current;
+
+    let activeLink = null;
     links.forEach((link) => {
       const href = link.getAttribute("href") || "";
       const id = href.startsWith("#") ? href.slice(1) : href;
-      link.classList.toggle("active", id === current);
+      const isActive = id === current;
+      link.classList.toggle("active", isActive);
+      if (isActive) activeLink = link;
     });
+
+    centerActiveLink(activeLink);
   };
 
   handleScroll();
@@ -638,12 +713,8 @@ const setActiveNavOnScroll = () => {
 const initReminderPopup = () => {
   const now = new Date();
   const timeInMinutes = now.getHours() * 60 + now.getMinutes();
-
-  if (timeInMinutes >= 780 && timeInMinutes < 900) {
-    dom.reminderTime.textContent = "15:00";
-    dom.reminderOverlay.classList.add("open");
-  } else if (timeInMinutes >= 930 && timeInMinutes < 1050) {
-    dom.reminderTime.textContent = "17:30";
+  
+  if (timeInMinutes >= 1260) {
     dom.reminderOverlay.classList.add("open");
   }
 };
@@ -651,6 +722,7 @@ const initReminderPopup = () => {
 const init = () => {
   renderSlider();
   renderMenu();
+  renderDailyMenu();
   initReminderPopup();
 
   dom.celiacFilter.addEventListener("change", (event) => {
@@ -682,6 +754,20 @@ const init = () => {
     }
   });
 
+  if (dom.dailyMenuButton) {
+    dom.dailyMenuButton.addEventListener("click", openDailyMenu);
+  }
+  if (dom.dailyMenuClose) {
+    dom.dailyMenuClose.addEventListener("click", closeDailyMenu);
+  }
+  if (dom.dailyMenuOverlay) {
+    dom.dailyMenuOverlay.addEventListener("click", (event) => {
+      if (event.target === dom.dailyMenuOverlay) {
+        closeDailyMenu();
+      }
+    });
+  }
+
   dom.reminderClose.addEventListener("click", () => {
     dom.reminderOverlay.classList.remove("open");
   });
@@ -690,7 +776,7 @@ const init = () => {
   });
 };
 
-fetch("../../data/menu.json")
+fetch("menu.json")
   .then((res) => res.json())
   .then((raw) => {
     data = mapMenuData(raw);
