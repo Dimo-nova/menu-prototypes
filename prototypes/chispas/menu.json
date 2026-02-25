@@ -1,0 +1,253 @@
+{
+  "restaurant": {
+    "name": "Chispas Boadilla del Monte",
+    "tagline": "Especialistas en carne a la brasa de la máxima calidad",
+    "location": "Boadilla del Monte",
+    "hours": "13:00-16:00 | 19:00-23:00",
+    "phone": "+34 91 000 000",
+    "currency": "EUR"
+  },
+  "sliders": [
+    {
+      "id": "slider-pimientos",
+      "tag": "Para picar",
+      "title": "Pimientos de padrón",
+      "description": "Sabores de siempre con producto fresco.",
+      "imageUrl": "../../data/images/dishes/entrantes/padron.jpg"
+    },
+    {
+      "id": "slider-hamburguesa",
+      "tag": "Especialidad",
+      "title": "Hamburguesas artesanales",
+      "description": "Carne de primera calidad con ingredientes frescos.",
+      "imageUrl": "../../data/images/dishes/hamburguesas/hero-burguer.jpg",
+      "videoUrl": "../../data/videos/dishes/hamburguesas/platos.mp4"
+    }
+  ],
+  "allergens": [
+    {
+      "id": "gluten",
+      "name": "Gluten",
+      "icon": "images/alergenos/gluten.svg"
+    },
+    {
+      "id": "lacteos",
+      "name": "Lacteos",
+      "icon": "images/alergenos/lacteos.svg"
+    },
+    {
+      "id": "huevos",
+      "name": "Huevos",
+      "icon": "images/alergenos/huevos.svg"
+    },
+    {
+      "id": "pescado",
+      "name": "Pescado",
+      "icon": "images/alergenos/pescado.svg"
+    },
+    {
+      "id": "crustaceos",
+      "name": "Crustaceos",
+      "icon": "images/alergenos/crustaceos.svg"
+    },
+    {
+      "id": "moluscos",
+      "name": "Moluscos",
+      "icon": "images/alergenos/moluscos.svg"
+    },
+    {
+      "id": "consultar",
+      "name": "Consultar",
+      "icon": null
+    },
+    {
+      "id": "sin_gluten",
+      "name": "Sin gluten",
+      "icon": null
+    }
+  ],
+  "categories": [
+    {
+      "id": "para_picar",
+      "name": "Para Picar",
+      "subtitle": "Clasicos para compartir",
+      "dishes": [
+        
+        {
+          "id": "empanada_atun",
+          "name": "Empanada casera de atun",
+          "description": "Receta tradicional con atun del cantabrico y pimientos",
+          "price": "7,50 EUR",
+          "image": "/images/dishes/empanadas/empanada-general.jpg",
+          "allergens": ["gluten"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "pulpo_gallega",
+          "name": "Pulpo a la gallega",
+          "description": "Pulpo cocido con pimenton, aceite de oliva y sal gorda",
+          "price": "23,00 EUR",
+          "image": "/images/dishes/entrantes/pulpo-a-la-gallega.jpg",
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "croquetas_caseras",
+          "name": "Croquetas caseras",
+          "description": "8 uds. jamon, bacalao o morcilla, elaboracion artesanal",
+          "price": "15,50 EUR",
+          "image": "/images/dishes/entrantes/croquetas.jpg",
+          "allergens": ["gluten"],
+          "isSignature": false,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "carnes",
+      "name": "Carnes",
+      "subtitle": "De la parrilla a tu mesa",
+      "dishes": [
+        {
+          "id": "chuleton_ternera",
+          "name": "Chuleton de ternera",
+          "description": "1kg aprox. madurado 30 dias, a la brasa",
+          "price": "48,00 EUR",
+          "image": "/images/dishes/carne/chuleton-de-ternera.jpg",
+          "allergens": [],
+          "isSignature": true,
+          "tags": []
+        },
+        {
+          "id": "pollo_miel",
+          "name": "Pollo a la miel",
+          "description": "Pechuga de pollo con salsa de miel y mostaza",
+          "price": "16,50 EUR",
+          "image": "/images/dishes/carne/pollo-miel.jpg",
+          "allergens": ["consultar"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "carnes_parrilla",
+          "name": "Parrillada de carnes",
+          "description": "Seleccion de carnes variadas a la brasa",
+          "price": "24,00 EUR",
+          "image": "/images/dishes/carne/carnes-parrilla.jpg",
+          "allergens": [],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "hamburguesa_hero",
+          "name": "Hamburguesa Hero",
+          "description": "Doble carne, queso cheddar, bacon, lechuga, tomate y salsa especial",
+          "price": "14,50 EUR",
+          "image": "/images/dishes/hamburguesas/hero-burguer.jpg",
+          "video": "/videos/dishes/hamburguesas/platos.mp4",
+          "allergens": ["gluten", "lacteos"],
+          "isSignature": true,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "del_mar",
+      "name": "Del Mar",
+      "subtitle": "Pescados y mariscos",
+      "dishes": [
+        {
+          "id": "dorada_sal",
+          "name": "Dorada a la sal",
+          "description": "2 pax. Pescado fresco del dia en costra de sal",
+          "price": "48,00 EUR",
+          "image": "/images/dishes/pescado/dorada-a-la-sal.jpg",
+          "video": "/videos/dishes/dorada-video.mp4",
+          "allergens": ["pescado"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "tartar_atun",
+          "name": "Tartar de atun",
+          "description": "Atun rojo marinado con aguacate y sesamo",
+          "price": "21,50 EUR",
+          "image": "/images/dishes/pescado/tartar-de-atun.jpg",
+          "allergens": ["pescado"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "brocheta_chipirones",
+          "name": "Brocheta de chipirones",
+          "description": "Con gambas a la plancha y alioli",
+          "price": "17,00 EUR",
+          "image": "/images/dishes/entrantes/brocheta-chipirones.jpg",
+          "allergens": ["moluscos", "crustaceos"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "bacalao_hojaldre",
+          "name": "Bacalao al hojaldre",
+          "description": "Puerros confitados y gambas al ajillo",
+          "price": "24,00 EUR",
+          "image": "/images/dishes/pescado/bacalao-al-hojaldre.jpg",
+          "allergens": ["gluten", "lacteos", "pescado"],
+          "isSignature": false,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "postres",
+      "name": "Postres",
+      "subtitle": "Final clasico",
+      "dishes": [
+        {
+          "id": "tarta_queso",
+          "name": "Tarta de queso",
+          "description": "Tarta de queso al estilo vasco. SIN GLUTEN",
+          "price": "8,00 EUR",
+          "image": "/images/dishes/postres/tarta-de-queso.jpg",
+          "allergensText": "Sin gluten",
+          "allergens": ["lacteos", "huevos", "sin_gluten"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "tatin_manzana",
+          "name": "Tatin de manzana",
+          "description": "Hojaldre con manzana caramelizada y crema inglesa",
+          "price": "8,00 EUR",
+          "image": "/images/dishes/postres/tatin-de-manzana.jpg",
+          "allergens": ["gluten", "lacteos", "huevos"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "torrija_abuela",
+          "name": "Torrija de la abuela",
+          "description": "Receta tradicional con helado de vainilla",
+          "price": "8,00 EUR",
+          "image": "/images/dishes/postres/torrijas.webp",
+          "allergens": ["gluten", "lacteos", "huevos"],
+          "isSignature": false,
+          "tags": []
+        },
+        {
+          "id": "arroz_leche",
+          "name": "Arroz con leche",
+          "description": "Cremoso arroz con leche y canela",
+          "price": "8,00 EUR",
+          "image": "/images/dishes/postres/arroz-con-leche.jpg",
+          "allergens": ["lacteos"],
+          "isSignature": false,
+          "tags": []
+        }
+      ]
+    }
+  ]
+}
