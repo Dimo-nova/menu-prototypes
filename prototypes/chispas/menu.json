@@ -164,7 +164,6 @@
           "description": "2 pax. Pescado fresco del dia en costra de sal",
           "price": "48,00 EUR",
           "image": "/images/dishes/pescado/dorada-a-la-sal.jpg",
-          "video": "/videos/dishes/dorada-video.mp4",
           "allergens": ["pescado"],
           "isSignature": false,
           "tags": []
